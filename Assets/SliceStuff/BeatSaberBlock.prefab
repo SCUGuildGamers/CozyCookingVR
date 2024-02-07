@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8232706066213444899}
   - component: {fileID: -4691934596466233332}
   - component: {fileID: 1921931598358153198}
+  - component: {fileID: -5933516611190121249}
   m_Layer: 6
   m_Name: BeatSaberBlock
   m_TagString: Untagged
@@ -118,3 +119,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7df12d7195ad524097f9548f35909cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-5933516611190121249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4526778319385830381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03d64914a10b7864483b3af794f91ac5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sliceCount: 1
+  InnerMaterial: {fileID: 0}
