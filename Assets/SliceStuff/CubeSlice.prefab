@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: -1084567020081756003}
   - component: {fileID: 8232706066213444899}
   - component: {fileID: -4691934596466233332}
-  - component: {fileID: 5443413626794399994}
   m_Layer: 6
   m_Name: CubeSlice
   m_TagString: Untagged
@@ -106,17 +105,3 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &5443413626794399994
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4526778319385830381}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 03d64914a10b7864483b3af794f91ac5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sliceCount: 4
-  InnerMaterial: {fileID: 2100000, guid: f9043d2aee6e7d8488e588b8f5c4112a, type: 2}
