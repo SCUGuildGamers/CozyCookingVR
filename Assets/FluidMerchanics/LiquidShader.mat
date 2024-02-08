@@ -40,7 +40,12 @@ Material:
     m_Floats:
     - _QueueControl: 0
     - _QueueOffset: 0
-    m_Colors: []
+    - _WobbleX: 1.2
+    - _WobbleZ: 3.01
+    - _fill: 0.713
+    m_Colors:
+    - _SideColor: {r: 0.2269633, g: 0.6354179, b: 0.94716984, a: 0}
+    - _TopColor: {r: 0.012609419, g: 0.50413847, b: 0.9547169, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &92469845079031325
 MonoBehaviour:
