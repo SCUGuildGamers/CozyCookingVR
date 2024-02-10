@@ -7,17 +7,17 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: LiquidShader
-  m_Shader: {fileID: -6465566751694194690, guid: a9de2f21b9fe4ad4f87ab3769589bf67,
+  m_Name: flesh
+  m_Shader: {fileID: -6465566751694194690, guid: 81c96bffe44d4194eb6b3d4b2630fee8,
     type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
   m_InvalidKeywords: []
-  m_LightmapFlags: 0
+  m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 3000
+  m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
   m_LockedProperties: 
@@ -38,16 +38,18 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _AlphaClip: 0
+    - _Height: 0.17
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _WobbleX: 1.46
-    - _WobbleZ: 2.95
-    - _fill: 0.71
+    - _Speed: 0.02
     m_Colors:
-    - _SideColor: {r: 0.2269633, g: 0.6354179, b: 0.94716984, a: 0}
-    - _TopColor: {r: 0.012609419, g: 0.50413847, b: 0.9547169, a: 0}
+    - _Color: {r: 0.41037738, g: 0.02903613, b: 0.14013441, a: 1}
+    - _Color_1: {r: 0.6886792, g: 0.27407172, b: 0.19815768, a: 0}
+    - _DarkColor: {r: 0.14622638, g: 0.08414913, b: 0.08414913, a: 0}
+    - _LightColor: {r: 0.754717, g: 0.17087932, b: 0.17087932, a: 1}
   m_BuildTextureStacks: []
---- !u!114 &92469845079031325
+--- !u!114 &5083044465481209108
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}

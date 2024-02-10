@@ -7,17 +7,17 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: LiquidShader
-  m_Shader: {fileID: -6465566751694194690, guid: a9de2f21b9fe4ad4f87ab3769589bf67,
+  m_Name: Invert
+  m_Shader: {fileID: -6465566751694194690, guid: 2b7c06e56e86cc843825b7c6b60353e9,
     type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
   m_InvalidKeywords: []
-  m_LightmapFlags: 0
+  m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 3000
+  m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
   m_LockedProperties: 
@@ -40,14 +40,9 @@ Material:
     m_Floats:
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _WobbleX: 1.46
-    - _WobbleZ: 2.95
-    - _fill: 0.71
-    m_Colors:
-    - _SideColor: {r: 0.2269633, g: 0.6354179, b: 0.94716984, a: 0}
-    - _TopColor: {r: 0.012609419, g: 0.50413847, b: 0.9547169, a: 0}
+    m_Colors: []
   m_BuildTextureStacks: []
---- !u!114 &92469845079031325
+--- !u!114 &2353796594669430589
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
