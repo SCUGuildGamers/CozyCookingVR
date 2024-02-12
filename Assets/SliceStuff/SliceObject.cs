@@ -48,30 +48,50 @@ public class SliceObject : MonoBehaviour
         SlicedHull hull = target.Slice(endPoint.position, planeNormal);
         if(hull != null)
         {
-            // Decrements the slice count for children
-            sliceableComponent.sliceCount--;
             // Set replace material to sliced object's defined material. If not set, use default on slicer
             replaceMaterial = sliceableComponent.InnerMaterial ? sliceableComponent.InnerMaterial : cubeCrossSectionMat;
 
             GameObject upperHull = hull.CreateUpperHull(target, replaceMaterial); // CreateUpperHull(target, material that shows) 
-            SetupSliceComponent(upperHull, target);
             GameObject lowerHull = hull.CreateLowerHull(target, replaceMaterial);
-            SetupSliceComponent(lowerHull, target);
-            Destroy(target);
 
+            // Calculates upper and lower hull sizes, if either is too small, don't slice
+            float upperHullSize = CalculateSize(upperHull);
+            float lowerHullSize = CalculateSize(lowerHull);
+            if (upperHullSize > sliceableComponent.originalSize * sliceableComponent.margin &&
+                lowerHullSize > sliceableComponent.originalSize * sliceableComponent.margin)
+            {
+                // Decrements the slice count for children
+                sliceableComponent.sliceCount--;
+                // Sets up upper and lower hulls, destroys parent object
+                SetupSliceComponent(upperHull, target);
+                SetupSliceComponent(lowerHull, target);
+                Destroy(target);
+            }
+            else
+            {
+                Destroy(upperHull);
+                Destroy(lowerHull);
+            }
         }
     }
 
     // Create components, set mesh values, add explosion force, and set layer to slicable
     public void SetupSliceComponent(GameObject slicedObject, GameObject parent)
     {
-        Rigidbody rb = slicedObject.AddComponent<Rigidbody>();
         MeshCollider mc = slicedObject.AddComponent<MeshCollider>();
+        Rigidbody rb = slicedObject.AddComponent<Rigidbody>();
         XRGrabInteractable grabable = slicedObject.AddComponent<XRGrabInteractable>();
         Sliceable sc = slicedObject.AddComponent<Sliceable>();
         sc.CopyValuesFrom(parent.GetComponent<Sliceable>());
         mc.convex = true;
         rb.AddExplosionForce(explosionForce, slicedObject.transform.position, 1);
         slicedObject.layer = LayerMask.NameToLayer("Sliceable");
+    }
+
+    // Calculates the size of an object using MeshFilter
+    public float CalculateSize(GameObject target)
+    {
+        Vector3 sizeVector = target.GetComponent<MeshFilter>().mesh.bounds.size;
+        return sizeVector.x * sizeVector.y * sizeVector.z;
     }
 }

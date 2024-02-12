@@ -7,7 +7,7 @@ public class Fill : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Game object = 
+        //Game object = 
     }
 
     // Update is called once per frame
