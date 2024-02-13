@@ -7,7 +7,9 @@ public class Respawn : MonoBehaviour
     // Start is called before the first frame update
     public GameObject Cubert;
     public GameObject Cube2;
-    
+    public GameObject tempBottle;
+
+    private bool tilt = false;
     void Start()
     {
         
@@ -31,6 +33,21 @@ public class Respawn : MonoBehaviour
         if (Keyboard.current.enterKey.wasPressedThisFrame)
         {
             StartCoroutine(startStream());
+        }
+        if (Keyboard.current.backslashKey.wasPressedThisFrame)
+        {
+            Debug.Log("tilting");
+            if (!tilt)
+            {
+                tempBottle.transform.Rotate(0f, 0f, 60f, Space.Self);
+                tilt = !tilt;
+            }
+            else
+            {
+                tempBottle.transform.Rotate(0f, 0f, -60f, Space.Self);
+                tilt = !tilt;
+            }
+            
         }
     }
     public IEnumerator startStream()
