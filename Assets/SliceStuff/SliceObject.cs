@@ -85,6 +85,7 @@ public class SliceObject : MonoBehaviour
         sc.CopyValuesFrom(parent.GetComponent<Sliceable>());
         mc.convex = true;
         rb.AddExplosionForce(explosionForce, slicedObject.transform.position, 1);
+        grabable.movementType = XRBaseInteractable.MovementType.VelocityTracking;
         slicedObject.layer = LayerMask.NameToLayer("Sliceable");
     }
 
