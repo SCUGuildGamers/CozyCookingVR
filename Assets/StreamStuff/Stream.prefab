@@ -4888,6 +4888,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3256dc7c9c64e024e8645aa456717094, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  liquidFill: {fileID: 0}
 --- !u!120 &5238570228697279500
 LineRenderer:
   serializedVersion: 2
