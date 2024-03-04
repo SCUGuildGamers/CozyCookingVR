@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: LiquidShader
+  m_Name: LiquidShaderBase
   m_Shader: {fileID: -6465566751694194690, guid: a9de2f21b9fe4ad4f87ab3769589bf67,
     type: 3}
   m_Parent: {fileID: 0}
@@ -17,7 +17,7 @@ Material:
   - _ALPHATEST_ON
   - _SURFACE_TYPE_TRANSPARENT
   m_InvalidKeywords: []
-  m_LightmapFlags: 0
+  m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: 3000
@@ -61,12 +61,12 @@ Material:
     - _ZTest: 4
     - _ZWrite: 0
     - _ZWriteControl: 0
-    - _fill: 0.66
+    - _fill: 0.45
     m_Colors:
     - _SideColor: {r: 0.2269633, g: 0.6354179, b: 0.94716984, a: 0}
     - _TopColor: {r: 0.012609419, g: 0.50413847, b: 0.9547169, a: 0}
   m_BuildTextureStacks: []
---- !u!114 &92469845079031325
+--- !u!114 &542971644928187766
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}

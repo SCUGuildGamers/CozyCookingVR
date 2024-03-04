@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class NewBehaviourScript : MonoBehaviour
 {
@@ -9,17 +10,20 @@ public class NewBehaviourScript : MonoBehaviour
     public int pourAngle;
     public Transform streamOrigin;
     public GameObject streamPrefab = null;
-    public bool noPour;
+    public GameObject water;
+    public bool notTiltedEnough;
     public float temp;
     public float ztemp;
 
     private Stream currentStream = null;
-
+    public Material liqFill;
 
     public bool isPouring;
 
     void Start()
     {
+        //liquidFill.SetFloat("_fill", 0.66f);
+        liqFill = water.GetComponent<MeshRenderer>().material; 
 
     }
 
@@ -28,21 +32,30 @@ public class NewBehaviourScript : MonoBehaviour
     {
         temp = CalcPourAngle();
         ztemp = CalcPourAngleZ();
-        noPour = CalcPourAngle() < pourAngle && CalcPourAngleZ() < pourAngle; // false 
-        if (!noPour && isPouring == false)
+        notTiltedEnough = CalcPourAngle() < pourAngle && CalcPourAngleZ() < pourAngle; // false 
+        if (!notTiltedEnough && isPouring == false)
         {
-             isPouring = true;
-             StartPour();
+            if(liqFill.GetFloat("_fill") >= 0.445)
+            {
+                isPouring = true;
+                StartPour();
+            }    
         }
-        else if(noPour && isPouring == true)
+        else if(notTiltedEnough && isPouring == true)
         {
-             isPouring = false;
-             EndPour();
+            isPouring = false;
+            EndPour();     
         }
-        
-        
-        
-     
+        else if(!notTiltedEnough && isPouring == true && liqFill.GetFloat("_fill") <= 0.445)
+        {
+            isPouring = false;
+            EndPour();
+        }
+        if (Keyboard.current.commaKey.wasPressedThisFrame)
+        {
+            liqFill.SetFloat("_fill", .64f);
+        }
+             
     }
 
     private float CalcPourAngle()
@@ -57,13 +70,17 @@ public class NewBehaviourScript : MonoBehaviour
 
     private void StartPour()
     {
-
+ 
+        StartCoroutine(decreaseFill());
         currentStream = CreateStream();
         currentStream.Begin();
+        
+
     }
 
     private void EndPour()
     {
+
         currentStream.End();
         currentStream = null;
         
@@ -75,5 +92,19 @@ public class NewBehaviourScript : MonoBehaviour
        // currentStream = steamObj;
         return steamObj.GetComponent<Stream>();
 
+    }
+
+    public IEnumerator decreaseFill()
+    {
+        float a;
+        while (isPouring)
+        {
+            a = liqFill.GetFloat("_fill");
+            if(a > 0.445f)
+            {
+                liqFill.SetFloat("_fill", a - 0.0005f); 
+            }
+            yield return null;
+        }
     }
 }

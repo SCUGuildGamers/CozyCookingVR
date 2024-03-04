@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Wobble : MonoBehaviour
 {
@@ -23,6 +24,10 @@ public class Wobble : MonoBehaviour
     void Start()
     {
         rend = GetComponent<Renderer>();
+        if (Keyboard.current.commaKey.wasPressedThisFrame)
+        {
+            StartCoroutine(tilt());
+        }
     }
     private void Update()
     {
@@ -54,6 +59,20 @@ public class Wobble : MonoBehaviour
         lastRot = transform.rotation.eulerAngles;
     }
 
+    public IEnumerator tilt()
+    {
+        for (int i = 0; i < 45; i++)
+        {
 
+            transform.Rotate(transform.rotation.x, transform.rotation.y, transform.rotation.z + 1, Space.Self);
+            yield return null;
+        }
+        yield return new WaitForSeconds(1.5f);
+        for (int i = 0; i < 45; i++)
+        {
+            transform.Rotate(transform.rotation.x, transform.rotation.y, transform.rotation.z - 1, Space.Self);
+            yield return null;
+        }
+    }
 
 }
