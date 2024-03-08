@@ -1,11 +1,16 @@
+using System.Collections;
 using UnityEngine;
 
-public class Audio : ScriptableObject
+public class Audio : MonoBehaviour
 {
-    public AudioClip clip;
-    public bool loop;
-    public float pitch;
-    public bool playOnAwake;
-    [Range(0f,1f)]
-    public float volume;
+    private void Start()
+    {
+        StartCoroutine("DestroySelf", GetComponent<AudioSource>().clip.length);
+    }
+
+    private IEnumerator DestroySelf(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        Destroy(this.gameObject);
+    }
 }
