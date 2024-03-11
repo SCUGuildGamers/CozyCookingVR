@@ -125,6 +125,9 @@ MonoBehaviour:
   InnerMaterial: {fileID: 2100000, guid: 705018044d608944186f0ae9adf581de, type: 2}
   margin: 0.1
   originalSize: -1
+  sounds:
+  - onion
+  - chop landing
 --- !u!54 &5911210448749470814
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -39,12 +39,12 @@ public class Respawn : MonoBehaviour
             Debug.Log("tilting");
             if (!tilt)
             {
-                tempBottle.transform.Rotate(0f, 0f, 60f, Space.Self);
+                tempBottle.transform.Rotate(0f, 0f, 120f, Space.Self);
                 tilt = !tilt;
             }
             else
             {
-                tempBottle.transform.Rotate(0f, 0f, -60f, Space.Self);
+                tempBottle.transform.Rotate(0f, 0f, -120f, Space.Self);
                 tilt = !tilt;
             }
             

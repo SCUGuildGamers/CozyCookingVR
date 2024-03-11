@@ -10,6 +10,7 @@ public class Sliceable : MonoBehaviour
     public float margin = 0.1f;
     [HideInInspector]
     public float originalSize = -1f;
+    public List<string> sounds;
 
     private void Start()
     {
@@ -30,5 +31,6 @@ public class Sliceable : MonoBehaviour
         InnerMaterial = input.InnerMaterial;
         margin = input.margin;
         originalSize = input.originalSize;
+        sounds = new List<string>(input.sounds);
     }
 }

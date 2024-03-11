@@ -305,3 +305,6 @@ MonoBehaviour:
     type: 3}
   margin: 0.1
   originalSize: -1
+  sounds:
+  - tomato
+  - chop landing
