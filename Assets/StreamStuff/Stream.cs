@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Stream : MonoBehaviour
 {
@@ -11,14 +12,23 @@ public class Stream : MonoBehaviour
 
     private Coroutine pourRoutine = null;
     public Material liquidFill;
+    public LayerMask myLayerMask;
+
+    public AudioSource potSource;
+    public AudioSource floorSource;
+    public AudioSource glugSource;
+    //public AudioClip Pouring;
+    public AudioClip hittingPot;
+    public AudioClip bottleGlug;
+    public AudioClip hittingFloor;
+
+
 
     private struct info{
-        public Vector3 endPoint;
         public bool v;
         public RaycastHit h;
-        public info(Vector3 endPoint, bool v, RaycastHit r) : this()
+        public info(bool v, RaycastHit r) : this()
         {
-            this.endPoint = endPoint;
             this.v = v;
             this.h = r;
         }
@@ -26,11 +36,15 @@ public class Stream : MonoBehaviour
     private void Awake()
     {
         lineRenderer = GetComponent<LineRenderer>();
-        //splashParticle = GetComponentInChildren<ParticleSystem>();
+        splashParticle = GetComponentInChildren<ParticleSystem>();
     }
     // Start is called before the first frame update
     void Start()
     {
+        potSource.clip = hittingPot;
+        floorSource.clip = hittingFloor;
+        glugSource.clip = bottleGlug;
+
         MoveToPosition(0, transform.position);
         MoveToPosition(1, transform.position);
     }
@@ -38,25 +52,38 @@ public class Stream : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        //Debug.Log(targetPosition); 
+        if (Keyboard.current.quoteKey.wasPressedThisFrame)
+        {
+            Debug.Log("should be gluggin");
+            glugSource.Play();
+        }
     }
 
     public void Begin()
     {
+        
+        StartCoroutine(UpdateParticle());
         pourRoutine = StartCoroutine(BeginPour());
         
     }
 
     public void End()
     {
+        glugSource.Stop();
         StopCoroutine(pourRoutine);
         pourRoutine = StartCoroutine(EndPour());
     }
 
     private IEnumerator EndPour()
     {
-        while(!hasReachedPos(0, targetPosition))
+
+        while (!hasReachedPos(0, targetPosition))
         {
+            if (glugSource.isPlaying)
+            {
+                glugSource.Stop();
+            }
             AnimateToPosition(0, targetPosition);
             AnimateToPosition(1, targetPosition);
             yield return null;
@@ -65,6 +92,7 @@ public class Stream : MonoBehaviour
         
     }
 
+    /*
     private IEnumerator BeginPour()
     {
         // play the start pour sound
@@ -84,9 +112,9 @@ public class Stream : MonoBehaviour
             yield return null;
 
         }
-        
-
     }
+    */
+    /*
     private info FindEndPoint()
     {
         RaycastHit hit;
@@ -102,10 +130,54 @@ public class Stream : MonoBehaviour
             //liquidFill.SetFloat("_fill", liquidFill.GetFloat("_fill") + 0.0005f);
             willFill = true;
         }
+
         info a = new info(endPoint, willFill, hit);
         return a;
     }
+    */
 
+    private IEnumerator BeginPour()
+    {
+        // play the start pour sound
+  
+        while (gameObject.activeSelf)
+        {
+            if (!glugSource.isPlaying)
+            {
+                glugSource.Play();
+            }
+            targetPosition = FindEndPoint();
+            MoveToPosition(0, transform.position);
+            AnimateToPosition(1, targetPosition);
+            yield return null;
+
+        }
+    }
+    private Vector3 FindEndPoint()
+    {
+        RaycastHit hit;
+        Ray ray = new Ray(transform.position, Vector3.down);
+        Physics.Raycast(ray, out hit, 2.0f, myLayerMask); // 2.0 is the max distance the water can go
+        Vector3 endPoint = hit.collider ? hit.point : ray.GetPoint(2.0f);
+        return endPoint;
+    }
+    private info ShouldFill()
+    {
+        info a;
+        RaycastHit hit;
+        Ray ray = new Ray(transform.position, Vector3.down);
+        Physics.Raycast(ray, out hit, 2.0f, myLayerMask); // 2.0 is the max distance the water can go
+        if (hit.collider.tag == "Fillable")
+        {
+            a = new info(true, hit);
+            return a;
+        }
+        else
+        {
+            a = new info(false, hit);
+            return a;
+        }
+    }
     private void MoveToPosition(int index, Vector3 target)
     {
         lineRenderer.SetPosition(index, target);
@@ -114,7 +186,7 @@ public class Stream : MonoBehaviour
     private void AnimateToPosition(int index, Vector3 targetPosition)
     {
         Vector3 currentPoint = lineRenderer.GetPosition(index);
-        Vector3 newPos = Vector3.MoveTowards(currentPoint, targetPosition, Time.deltaTime*1.75f);
+        Vector3 newPos = Vector3.MoveTowards(currentPoint, targetPosition, Time.deltaTime*1.75f); // maybe make the stream faster?
         lineRenderer.SetPosition(index, newPos);
     }
 
@@ -126,7 +198,33 @@ public class Stream : MonoBehaviour
 
     private IEnumerator UpdateParticle()
     {
-        yield return null;
+        bool isHitting;
+        info isFilling;
+        while (gameObject.activeSelf)
+        {
+            isFilling = ShouldFill();
+            splashParticle.gameObject.transform.position = targetPosition;
+            isHitting = hasReachedPos(1, targetPosition);
+            splashParticle.gameObject.SetActive(isHitting);
+            if (isHitting && isFilling.v)
+            {
+                liquidFill = isFilling.h.collider.gameObject.transform.GetChild(0).gameObject.GetComponent<MeshRenderer>().material;
+                liquidFill.SetFloat("_fill", liquidFill.GetFloat("_fill") + 0.0005f);
+                if (!potSource.isPlaying)
+                {
+                    potSource.Play();
+                }
+            }
+            else if (!isFilling.v && isHitting)
+            {
+                if (potSource.isPlaying)
+                {
+                    potSource.Stop();
+                }
+            }
+            
+            yield return null;
+        }   
     }
 
     public void Die()

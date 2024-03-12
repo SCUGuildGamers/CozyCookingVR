@@ -398,7 +398,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Cubert: {fileID: 4526778319385830381, guid: 61c9e4be6af30e74faffbe7c9907defa, type: 3}
   Cube2: {fileID: 4526778319385830381, guid: 7af6ab91da759d24cb38694e26bb4fe5, type: 3}
-  tempBottle: {fileID: 0}
+  tempBottle: {fileID: 1361445668}
 --- !u!4 &231776072
 Transform:
   m_ObjectHideFlags: 0
@@ -452,6 +452,7 @@ MonoBehaviour:
   InnerMaterial: {fileID: 2100000, guid: b681eb3848a67dc46976521ec56bf980, type: 2}
   margin: 0.1
   originalSize: -1
+  sounds: []
 --- !u!65 &288214121
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1824,6 +1825,7 @@ MonoBehaviour:
   InnerMaterial: {fileID: 2100000, guid: f9043d2aee6e7d8488e588b8f5c4112a, type: 2}
   margin: 0.1
   originalSize: -1
+  sounds: []
 --- !u!65 &1181691999
 BoxCollider:
   m_ObjectHideFlags: 0
