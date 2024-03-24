@@ -11,6 +11,9 @@ public class Sliceable : MonoBehaviour
     [HideInInspector]
     public float originalSize = -1f;
 
+    // Varble in order to send message up
+    private bool sendMessage = false;
+
     private void Start()
     {
         Vector3 currentSize = GetComponent<MeshFilter>().mesh.bounds.size;

@@ -26,5 +26,10 @@ public class GameStateManager : Singleton<GameStateManager>
 // Create different game states here
 public enum GameState
 {
-    ChopOnion = 1,
+    Begin = 1,
+    ChopOnion = 2,
+    ChopTomato = 3,
+    BrownPork = 4,
+    WashBockchoy = 5, 
 }
+
