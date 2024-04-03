@@ -12,6 +12,7 @@ public class Sliceable : MonoBehaviour
     public float originalSize = -1f;
     public List<string> sounds;
 
+
     private void Start()
     {
         Vector3 currentSize = GetComponent<MeshFilter>().mesh.bounds.size;
