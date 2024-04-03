@@ -5,7 +5,7 @@ using UnityEngine;
 public class SetChamberVolume : MonoBehaviour
 {
     public int index; //cartridge number
-    public CartridgeState state;
+    //public CartridgeState state;
 
     //height values should be 0 <= h <= 1
     public float currentHeight; //used to store current height
@@ -33,28 +33,28 @@ public class SetChamberVolume : MonoBehaviour
         thisMaterial = gameObject.GetComponent<MeshRenderer>().material;
         //Debug.Log(index+", "+thisMaterial.GetFloat("_Fill"));
 
-        currentHeight = convertHeight(state.chamberVol[index]);//check the scriptable object for this chamber's height
+        //currentHeight = convertHeight(state.chamberVol[index]);//check the scriptable object for this chamber's height
         prevHeight = currentHeight;
         thisMaterial.SetFloat("_Fill", currentHeight);//set chamber physical height
     }
 
     void Update()
     {
-        if (currentHeight != convertHeight(state.chamberVol[index]))
+        //if (currentHeight != convertHeight(state.chamberVol[index]))
         {
             prevHeight = currentHeight;
-            currentHeight = convertHeight(state.chamberVol[index]);
+            //currentHeight = convertHeight(state.chamberVol[index]);
             check = 1;
             //Debug.Log(index+" start time: "+Time.time);
         }
 
         if (thisMaterial.GetFloat("_Fill") < currentHeight)
         {
-            thisMaterial.SetFloat("_Fill", thisMaterial.GetFloat("_Fill") + Time.deltaTime * state.chamberLerpSpeed[index] * (topCoord - bottomCoord));
+            //thisMaterial.SetFloat("_Fill", thisMaterial.GetFloat("_Fill") + Time.deltaTime * state.chamberLerpSpeed[index] * (topCoord - bottomCoord));
         }
         if (thisMaterial.GetFloat("_Fill") > currentHeight)
         {
-            thisMaterial.SetFloat("_Fill", thisMaterial.GetFloat("_Fill") - Time.deltaTime * state.chamberLerpSpeed[index] * (topCoord - bottomCoord));
+            //thisMaterial.SetFloat("_Fill", thisMaterial.GetFloat("_Fill") - Time.deltaTime * state.chamberLerpSpeed[index] * (topCoord - bottomCoord));
         }
         if (Mathf.Abs(thisMaterial.GetFloat("_Fill") - currentHeight) <= 0.05f && check == 1)
         {

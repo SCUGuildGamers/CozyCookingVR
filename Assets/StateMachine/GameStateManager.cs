@@ -24,9 +24,9 @@ public class GameStateManager : Singleton<GameStateManager>
 
 
     // Ignore the state function for now
-    public void Awake()
+    public override void Awake()
     {
-        
+        base.Awake();
     }
 
 
