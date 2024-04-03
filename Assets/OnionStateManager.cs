@@ -2,17 +2,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class OnionStateManager : MonoBehaviour
+// Deriving another class becuase I can I guess?
+public class OnionStateManager : Sliceable 
 {
-    // Start is called before the first frame update
+    // Ignore
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void Update()
     {
+        if(sliceCount == 0)
+        {
+            Debug.Log("Onion Slicer reached 0");
+            SendMessageUpwards("OnionSliced");
+        }
+    }
+
+    private void OnionCutStart()
+    {
+        // Use this space to initilzie any objects that need to be initilized.  
+        // Things like the bowl and the knife.
         
     }
 }

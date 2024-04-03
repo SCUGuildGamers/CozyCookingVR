@@ -7,6 +7,11 @@ public class GameStateManager : Singleton<GameStateManager>
 
     public GameState currentGameState;
 
+    // Variable for number of tomatoes and onions that need to be ut
+    public  int numOnions = 1;
+    public int numTomato = 1;
+
+
     // Create different game states here
     public enum GameState
     {
@@ -14,7 +19,7 @@ public class GameStateManager : Singleton<GameStateManager>
         ChopOnion,
         ChopTomato,
         BrownPork,
-        WashBockchoy, 
+        WashBockchoy
     }
 
 
@@ -30,7 +35,7 @@ public class GameStateManager : Singleton<GameStateManager>
         // start with sending a message to the onions and knives
     private void Start()
     {
-        currentGameState = ChopOnion;
+        ChangeGameState(GameState.ChopOnion);
     }
 
 
@@ -39,16 +44,17 @@ public class GameStateManager : Singleton<GameStateManager>
 
         currentGameState = newGameState;
         // Implement game state functionality here
-        switch (newState)
+        switch (newGameState)
         {
             case GameState.Begin:
-                BroadcastMessage("OnionCut");
                 break;
 
             case GameState.ChopOnion:
+                BroadcastMessage("OnionCutStart");
                 break;
 
             case GameState.ChopTomato:
+                Debug.Log("We got to this stage");
                 break;
 
             case GameState.BrownPork:
@@ -57,6 +63,16 @@ public class GameStateManager : Singleton<GameStateManager>
             case GameState.WashBockchoy:
                 break;
 
+        }
+    }
+
+    private void OnionSliced()
+    {
+        Debug.Log("OnionSliced Reached");
+        numOnions--;
+        if(numOnions == 0)
+        {
+            ChangeGameState(GameState.ChopTomato);
         }
     }
 }

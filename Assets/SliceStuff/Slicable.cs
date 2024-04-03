@@ -11,8 +11,6 @@ public class Sliceable : MonoBehaviour
     [HideInInspector]
     public float originalSize = -1f;
 
-    // Variable in order to send message up (Hugo Apparently)
-    private bool sendMessage = false;
 
     private void Start()
     {
