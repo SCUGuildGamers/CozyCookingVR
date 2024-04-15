@@ -28,11 +28,6 @@ public class AudioManager : MonoBehaviour
     private GameObject[] musicsList;
     private List<AudioSource> musics;
 
-    private void Awake()
-    {
-        InstantiateMusics();
-    }
-
     #region Sound Effects
 
     public float Play(string name, Transform parent)
@@ -81,6 +76,26 @@ public class AudioManager : MonoBehaviour
 
     #endregion
 
+    #region Loopable
+
+    public GameObject LerpLoopable(string name, Transform parent, float volume, float delay)
+    {
+        GameObject audio = System.Array.Find(sounds, sound => sound.name == name);
+
+        if (audio == null)
+        {
+            Debug.Log("Loopable: " + name + " not found");
+            return null;
+        }
+
+        Loopable loopable = Instantiate(audio, parent, false).GetComponent<Loopable>();
+        StartCoroutine(loopable.Lerp(volume, delay));
+
+        return loopable.gameObject;
+    }
+
+    #endregion
+
     #region Music
 
     public void InstantiateMusics()
@@ -104,13 +119,13 @@ public class AudioManager : MonoBehaviour
         audio.volume = volume;
     }
 
-    public void LerpMusicVolume(string name, float volume, float delay)
+    public IEnumerator LerpMusicVolume(string name, float volume, float delay)
     {
         AudioSource audio = musics.Find(music => music.name == name);
         if (audio == null)
         {
             Debug.Log("Music: " + name + " not found");
-            return;
+            yield break;
         }
 
         float currentTime = 0f;
@@ -118,8 +133,9 @@ public class AudioManager : MonoBehaviour
 
         while (currentTime < delay)
         {
-            audio.volume = Mathf.Lerp(prevVolume, volume, currentTime);
+            audio.volume = Mathf.Lerp(prevVolume, volume, currentTime / delay);
             currentTime += Time.unscaledDeltaTime;
+            yield return null;
         }
         audio.volume = volume;
     }
