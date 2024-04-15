@@ -39,6 +39,7 @@ public class GameStateManager : Singleton<GameStateManager>
     }
 
 
+    // Handles what happens when we switch states
     public void ChangeGameState(GameState newGameState)
     {
 
@@ -50,6 +51,7 @@ public class GameStateManager : Singleton<GameStateManager>
                 break;
 
             case GameState.ChopOnion:
+                // ON ChopOnion state (which is the first one, broadcast start)
                 BroadcastMessage("OnionCutStart");
                 break;
 

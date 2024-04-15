@@ -5,7 +5,7 @@ using UnityEngine;
 // Deriving another class becuase I can I guess?
 public class OnionStateManager : Sliceable 
 {
-    // Ignore
+    // 
     void Start()
     {
         
@@ -15,7 +15,7 @@ public class OnionStateManager : Sliceable
     {
         if(sliceCount == 0)
         {
-            Debug.Log("Onion Slicer reached 0");
+            Debug.Log("Onion slice count reached 0");
             SendMessageUpwards("OnionSliced");
         }
     }
@@ -24,6 +24,13 @@ public class OnionStateManager : Sliceable
     {
         // Use this space to initilzie any objects that need to be initilized.  
         // Things like the bowl and the knife.
-        
+        Debug.Log("OnionCutStart sucessfully reached");
+
+        // Get relevant components
+        private SliceableComponent = GetComponent<Sliceable>();
+        sliceCount = SliceableComponent.sliceCount;
+
+
+
     }
 }
