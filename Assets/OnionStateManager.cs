@@ -2,9 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// Deriving another class becuase I can I guess?
+
 public class OnionStateManager : Sliceable 
 {
+
+    private Sliceable SliceableComponent;
     // 
     void Start()
     {
@@ -27,10 +29,7 @@ public class OnionStateManager : Sliceable
         Debug.Log("OnionCutStart sucessfully reached");
 
         // Get relevant components
-        private SliceableComponent = GetComponent<Sliceable>();
+        SliceableComponent = GetComponent<Sliceable>();
         sliceCount = SliceableComponent.sliceCount;
-
-
-
     }
 }
