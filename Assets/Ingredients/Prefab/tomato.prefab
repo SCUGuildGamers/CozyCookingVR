@@ -305,6 +305,9 @@ MonoBehaviour:
     type: 3}
   margin: 0.1
   originalSize: -1
+  isRandomSound: 1
   sounds:
-  - tomato
-  - chop landing
+  - sfx_choppingtomato1
+  - sfx_choppingtomato2
+  - sfx_choppingtomato3
+  - sfx_choppingtomato4

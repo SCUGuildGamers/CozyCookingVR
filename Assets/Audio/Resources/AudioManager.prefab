@@ -46,10 +46,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sounds:
   - {fileID: 8560820457227985498, guid: 44d319c3a4c872445812dc13d642c459, type: 3}
-  - {fileID: 4395778677010165474, guid: 7400a0abc7f4a2d4ab2c83f1d7530183, type: 3}
   - {fileID: 8942168485666196931, guid: 00eb4f6ac3fd6064c82a98aa4bd8cb0e, type: 3}
-  - {fileID: 8942168485666196931, guid: d9a64f9bbaf7b51458bbb551db1a8ddc, type: 3}
   - {fileID: 8560820457227985498, guid: 00c25fe74cbdb234c9161e54a6fa3b80, type: 3}
   - {fileID: 8560820457227985498, guid: 3e2f39d0fe48fa2448a6dbda8a8e3405, type: 3}
   - {fileID: 8560820457227985498, guid: 4b1b8f68613f9cf4f926b2b33087ae9a, type: 3}
+  - {fileID: 2100424589395271160, guid: 801d883aec67d184d8757343e320e819, type: 3}
+  - {fileID: 2100424589395271160, guid: 231dadcb63232cd41b43690d3cbb560f, type: 3}
+  - {fileID: 2100424589395271160, guid: 6241723fae729104a973e7873e8cd6ad, type: 3}
+  - {fileID: 2100424589395271160, guid: c3bb12f22bf05454aa2330387051f675, type: 3}
+  - {fileID: 2100424589395271160, guid: ca9b9b13647e63642bc30fe9d2ba83fa, type: 3}
+  - {fileID: 2100424589395271160, guid: 3f20bc3a1f46b94499e2aec023468609, type: 3}
+  - {fileID: 2100424589395271160, guid: 1483acca2932e5b4f8f8e1358a1b8d5c, type: 3}
+  - {fileID: 2100424589395271160, guid: 48faff12dba9d5d46bb941bf08dcb2cd, type: 3}
   musicsList: []

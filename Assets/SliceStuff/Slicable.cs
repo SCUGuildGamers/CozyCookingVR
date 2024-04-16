@@ -10,6 +10,7 @@ public class Sliceable : MonoBehaviour
     public float margin = 0.1f;
     [HideInInspector]
     public float originalSize = -1f;
+    public bool isRandomSound = true;
     public List<string> sounds;
 
 
