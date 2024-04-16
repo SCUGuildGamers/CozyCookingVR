@@ -15,11 +15,15 @@ public class GameStateManager : Singleton<GameStateManager>
     // Create different game states here
     public enum GameState
     {
-        Begin,
-        ChopOnion,
-        ChopTomato,
-        BrownPork,
-        WashBockchoy
+
+        // Note: I am using the names for two things: 
+        // 1) the actual name of the GameState
+        // 2) the functions that are being called at the beginning of the GameState
+        StartingState,
+        BeginOnionChop,
+        BeginTomatoChop,
+        BeginBrownPork,
+        BeginWashingBokchoy
     }
 
 
@@ -35,7 +39,7 @@ public class GameStateManager : Singleton<GameStateManager>
         // start with sending a message to the onions and knives
     private void Start()
     {
-        ChangeGameState(GameState.ChopOnion);
+        ChangeGameState(GameState.StartingState);
     }
 
 
@@ -47,35 +51,50 @@ public class GameStateManager : Singleton<GameStateManager>
         // Implement game state functionality here
         switch (newGameState)
         {
-            case GameState.Begin:
+            case GameState.StartingState:
+                Debug.Log("StartingState reached!");
+                BroadcastMessage("StartingState");
                 break;
 
-            case GameState.ChopOnion:
+            case GameState.BeginOnionChop:
                 // ON ChopOnion state (which is the first one, broadcast start)
-                BroadcastMessage("OnionCutStart");
+                Debug.Log("BeginOnionChop reached!");
+                BroadcastMessage("BeginOnionChop");
                 break;
 
-            case GameState.ChopTomato:
-                Debug.Log("We got to this stage");
+            case GameState.BeginTomatoChop:
+                Debug.Log("BeginTomatoChop reached!");
+                BroadcastMessage("BeginTomatoChop");
                 break;
 
-            case GameState.BrownPork:
+            case GameState.BeginBrownPork:
+                Debug.Log("BeginBrownPork reached!");
                 break;
 
-            case GameState.WashBockchoy:
+            case GameState.BeginWashingBokchoy:
                 break;
 
         }
     }
 
-    private void OnionSliced()
+    public void EndStartingState()
     {
-        Debug.Log("OnionSliced Reached");
-        numOnions--;
-        if(numOnions == 0)
-        {
-            ChangeGameState(GameState.ChopTomato);
-        }
+        ChangeGameState(GameState.BeginOnionChop);
+    }
+
+    public void EndOnionChop()
+    {
+        ChangeGameState(GameState.BeginTomatoChop);
+    }
+
+    public void EndTomatoChop()
+    {
+        ChangeGameState(GameState.BeginBrownPork);
+    }
+
+    void IsThisWorking()
+    {
+        Debug.Log("Debugging step!");
     }
 }
 
