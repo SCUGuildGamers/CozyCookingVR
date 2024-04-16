@@ -30,12 +30,12 @@ public class OnionStateManager : Sliceable
 
     void Update()
     {
-        if(gameObject.transform.childCount == 4)
+        if(gameObject.transform.childCount == 6)
         {
             // Might as well handle all the logic for the end of onion slice here
-            SendMessageUpwards("EndOnionChop");
-            XRScript.enabled = false;
-            OutlineScript.enabled = false;
+            // XRScript.enabled = false;
+           // OutlineScript.enabled = false;
+            GameStateManager.instance.EndOnionChop();
         }
     }
 
@@ -43,7 +43,7 @@ public class OnionStateManager : Sliceable
     {
         // On BeginOnionChop, set the GameObject to SliceableTag so that it interacts with the thing
         XRScript.enabled = true;
-        //OutlineScript.enabled = true;
-        child.tag = "Sliceable";
+       // OutlineScript.enabled = true;
+        child.layer = 6;
     }
 }

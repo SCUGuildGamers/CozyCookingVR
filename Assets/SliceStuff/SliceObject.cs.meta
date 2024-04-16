@@ -3,7 +3,14 @@ guid: a2c21918008dae94eaeae39c3bfcea4f
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - planeDebug: {instanceID: 0}
+  - startPoint: {instanceID: 0}
+  - endPoint: {instanceID: 0}
+  - controllerVelocity: {instanceID: 0}
+  - cubeCrossSectionMat: {instanceID: 0}
+  - SlicedObjectManager: {fileID: 8932975690738036916, guid: b0bc792fc6528b44585e98c444d402f7,
+      type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

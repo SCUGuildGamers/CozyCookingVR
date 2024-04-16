@@ -12,31 +12,38 @@ public class TomatoStateManager : Sliceable
     private XRGrabInteractable XRScript;
     private Outline OutlineScript;
 
+    GameObject child;
+
     private void Start()
     {
+
+        child = transform.GetChild(1).gameObject;
+
+
         // Define the script components (get them from the object derviced from the Sliceable)
-        SliceableComponent = GetComponent<Sliceable>();
-        XRScript = GetComponent<XRGrabInteractable>();
-        OutlineScript = GetComponent<Outline>();
+        SliceableComponent = child.GetComponent<Sliceable>();
+        XRScript = child.GetComponent<XRGrabInteractable>();
+        OutlineScript = child.GetComponent<Outline>();
+
     }
 
 
     void Update()
     {
-        if (sliceCount == 0)
+        if (gameObject.transform.childCount == 9)
         {
-            // Might as well handle all the logic for the end of TOMATO slice here
-            SendMessageUpwards("EndTomatoChop");
-            XRScript.enabled = false;
-            OutlineScript.enabled = false;
-            SliceableComponent.enabled = false;
+            // Might as well handle all the logic for the end of onion slice here
+            // XRScript.enabled = false;
+            // OutlineScript.enabled = false;
+            GameStateManager.instance.EndTomatoChop();
         }
     }
 
     private void BeginTomatoChop()
     {
+        // On BeginOnionChop, set the GameObject to SliceableTag so that it interacts with the thing
         XRScript.enabled = true;
-        OutlineScript.enabled = true;
-        SliceableComponent.enabled = true;
+        // OutlineScript.enabled = true;
+        child.layer = 6;
     }
 }

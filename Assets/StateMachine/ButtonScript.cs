@@ -32,7 +32,7 @@ public class ButtonScript : MonoBehaviour
     private void StartingState()
     {
         grabInteractable.enabled = true;
-       // OutlineScript.enabled = true;
+       OutlineScript.enabled = true;
     }
 
     private void BeginOnionChop()

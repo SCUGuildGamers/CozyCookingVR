@@ -69,9 +69,11 @@ public class GameStateManager : Singleton<GameStateManager>
 
             case GameState.BeginBrownPork:
                 Debug.Log("BeginBrownPork reached!");
+                BroadcastMessage("BeginBrownPork");
                 break;
 
             case GameState.BeginWashingBokchoy:
+                Debug.Log("BeginWashingBokchoy reached!");
                 break;
 
         }
@@ -92,9 +94,9 @@ public class GameStateManager : Singleton<GameStateManager>
         ChangeGameState(GameState.BeginBrownPork);
     }
 
-    void IsThisWorking()
+    public void EndBrownPork()
     {
-        Debug.Log("Debugging step!");
+        ChangeGameState(GameState.BeginWashingBokchoy);
     }
 }
 
