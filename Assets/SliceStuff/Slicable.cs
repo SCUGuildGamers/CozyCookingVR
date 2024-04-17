@@ -33,6 +33,7 @@ public class Sliceable : MonoBehaviour
         InnerMaterial = input.InnerMaterial;
         margin = input.margin;
         originalSize = input.originalSize;
+        isRandomSound = input.isRandomSound;
         sounds = new List<string>(input.sounds);
     }
 }
