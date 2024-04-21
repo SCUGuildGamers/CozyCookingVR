@@ -65,7 +65,14 @@ public class SliceObject : MonoBehaviour
                 // Sets up upper and lower hulls, destroys parent object
                 SetupSliceComponent(upperHull, target);
                 SetupSliceComponent(lowerHull, target);
-                StartCoroutine(AudioManager.instance.PlayInOrder(sliceableComponent.sounds, transform));
+                if (sliceableComponent.isRandomSound)
+                {
+                    AudioManager.instance.RandomPlay(sliceableComponent.sounds, transform);
+                }
+                else
+                {
+                    StartCoroutine(AudioManager.instance.PlayInOrder(sliceableComponent.sounds, transform));
+                }
                 Destroy(target);
             }
             else

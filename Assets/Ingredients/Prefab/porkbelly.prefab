@@ -336,6 +336,7 @@ MonoBehaviour:
   InnerMaterial: {fileID: 2100000, guid: 75ba107f5a43fca4cb9631798478a751, type: 2}
   margin: 0.05
   originalSize: -1
+  isRandomSound: 0
   sounds:
   - porkbelly
   - chop landing
