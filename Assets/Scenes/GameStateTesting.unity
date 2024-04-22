@@ -1108,6 +1108,7 @@ MonoBehaviour:
   margin: 0.1
   originalSize: -1
   sounds: []
+  knife: {fileID: 0}
 --- !u!114 &442875660
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1848,7 +1849,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!114 &531810784
 MonoBehaviour:
@@ -5700,6 +5701,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1528281748}
+    - targetCorrespondingSourceObject: {fileID: 711996880950758725, guid: 986ce60b04eeb014d90fcd6544828537,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1528281749}
   m_SourcePrefab: {fileID: 100100000, guid: 986ce60b04eeb014d90fcd6544828537, type: 3}
 --- !u!4 &1528281745 stripped
 Transform:
@@ -5731,6 +5736,18 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+--- !u!114 &1528281749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1528281746}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5231e7cfefe93a04cbec9b8683737058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1547448545
 GameObject:
   m_ObjectHideFlags: 0
@@ -7055,7 +7072,7 @@ PrefabInstance:
     - target: {fileID: 2246156804645847671, guid: d5d9960e1364bce4391e31dcae28bade,
         type: 3}
       propertyPath: margin
-      value: 0.2
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 2246156804645847671, guid: d5d9960e1364bce4391e31dcae28bade,
         type: 3}
@@ -7065,7 +7082,7 @@ PrefabInstance:
     - target: {fileID: 2246156804645847671, guid: d5d9960e1364bce4391e31dcae28bade,
         type: 3}
       propertyPath: sliceCount
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2246156804645847671, guid: d5d9960e1364bce4391e31dcae28bade,
         type: 3}

@@ -4,14 +4,19 @@ using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
 
+
+// NOTE: This script is actually stupid.  All cuttable objects' game mamangers are attached to an empty game object, which it then manages through GetChild(i)
+// If I have the time I should look for a more elegant solution but this might need to work for now...
+
 public class OnionStateManager : Sliceable 
 {
     // Define the script components
     private Sliceable SliceableComponent;
-
     private XRGrabInteractable XRScript;
     private Outline OutlineScript;
 
+    // I believe you can just add these GameObjects from the explorer so you do not have to deal with Get() bs
+    public GameObject knife;
     GameObject child;
 
     private void Start()
@@ -43,7 +48,7 @@ public class OnionStateManager : Sliceable
     {
         // On BeginOnionChop, set the GameObject to SliceableTag so that it interacts with the thing
         XRScript.enabled = true;
-       // OutlineScript.enabled = true;
+        OutlineScript.enabled = true;
         child.layer = 6;
     }
 }

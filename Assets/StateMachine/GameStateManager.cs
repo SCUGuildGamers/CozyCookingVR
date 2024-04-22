@@ -11,6 +11,8 @@ public class GameStateManager : Singleton<GameStateManager>
     public  int numOnions = 1;
     public int numTomato = 1;
 
+    public GameObject secondInCommand;
+
 
     // Create different game states here
     public enum GameState

@@ -20,24 +20,39 @@ public class ButtonScript : MonoBehaviour
         // grabInteractable.onSelectEntered.AddListener(OnGrabbed);
         grabInteractable.onSelectExited.AddListener(OnReleased);
     }
-        
+
     private void OnReleased(XRBaseInteractor interactor)
     {
         GameStateManager.instance.EndStartingState();
     }
 
- 
+
 
     // for the gamestates
     private void StartingState()
     {
         grabInteractable.enabled = true;
-       OutlineScript.enabled = true;
+        OutlineScript.enabled = true;
     }
 
     private void BeginOnionChop()
     {
         grabInteractable.enabled = false;
         OutlineScript.enabled = false;
+    }
+
+    private void BeginTomatoChop()
+    {
+
+    }
+
+    private void BeginBrownPork()
+    {
+
+    }
+
+    private void BeginWashingBokChoy()
+    {
+
     }
 }
