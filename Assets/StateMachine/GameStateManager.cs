@@ -11,7 +11,9 @@ public class GameStateManager : Singleton<GameStateManager>
     public  int numOnions = 1;
     public int numTomato = 1;
 
-    public GameObject secondInCommand;
+    // Needed in order to delay the start of a GameState until the button has been pressed
+    // public GameObject secondInCommand;
+    // private ButtonScript buttonScript;
 
 
     // Create different game states here
@@ -23,8 +25,11 @@ public class GameStateManager : Singleton<GameStateManager>
         // 2) the functions that are being called at the beginning of the GameState
         StartingState,
         BeginOnionChop,
+        BeginTomatoChopBook,
         BeginTomatoChop,
+        BeginBrownPorkBook,
         BeginBrownPork,
+        BeginWashingBokChoyBook,
         BeginWashingBokchoy
     }
 
@@ -41,6 +46,7 @@ public class GameStateManager : Singleton<GameStateManager>
         // start with sending a message to the onions and knives
     private void Start()
     {
+        // buttonScript = secondInCommand.GetComponent<ButtonScript>();
         ChangeGameState(GameState.StartingState);
     }
 
@@ -53,34 +59,60 @@ public class GameStateManager : Singleton<GameStateManager>
         // Implement game state functionality here
         switch (newGameState)
         {
+            
             case GameState.StartingState:
                 Debug.Log("StartingState reached!");
                 BroadcastMessage("StartingState");
                 break;
+            
 
             case GameState.BeginOnionChop:
                 // ON ChopOnion state (which is the first one, broadcast start)
                 Debug.Log("BeginOnionChop reached!");
+            
                 BroadcastMessage("BeginOnionChop");
                 break;
 
+            
+            case GameState.BeginTomatoChopBook:
+                BroadcastMessage("BeginTomatoChopBook");
+                break;
+            
+
             case GameState.BeginTomatoChop:
                 Debug.Log("BeginTomatoChop reached!");
+
                 BroadcastMessage("BeginTomatoChop");
                 break;
 
+                
+            case GameState.BeginBrownPorkBook:
+                BroadcastMessage("BeginBrownPorkBook");
+                break;
+                
+
             case GameState.BeginBrownPork:
                 Debug.Log("BeginBrownPork reached!");
+
                 BroadcastMessage("BeginBrownPork");
                 break;
 
+            
+            case GameState.BeginWashingBokChoyBook:
+                BroadcastMessage("BeginWashingBokchoyBook");
+                break;
+            
+
             case GameState.BeginWashingBokchoy:
                 Debug.Log("BeginWashingBokchoy reached!");
+                BroadcastMessage("BeginWashingBokChoy");
                 break;
 
         }
     }
 
+
+    // For potential expansionss
     public void EndStartingState()
     {
         ChangeGameState(GameState.BeginOnionChop);
@@ -88,17 +120,18 @@ public class GameStateManager : Singleton<GameStateManager>
 
     public void EndOnionChop()
     {
-        ChangeGameState(GameState.BeginTomatoChop);
+        ChangeGameState(GameState.BeginTomatoChopBook);
     }
 
     public void EndTomatoChop()
     {
-        ChangeGameState(GameState.BeginBrownPork);
+        ChangeGameState(GameState.BeginBrownPorkBook);
     }
 
     public void EndBrownPork()
     {
-        ChangeGameState(GameState.BeginWashingBokchoy);
+        ChangeGameState(GameState.BeginWashingBokChoyBook);
     }
+
 }
 

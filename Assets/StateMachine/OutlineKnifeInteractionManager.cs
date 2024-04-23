@@ -4,15 +4,29 @@ using UnityEngine;
 
 public class OutlineKnifeInteractionManager : MonoBehaviour
 {
+
+    private Outline OutlineScript;
+    public GameObject theKnife;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        OutlineScript = gameObject.GetComponent<Outline>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnCollisionEnter(Collision collision)
     {
-        
+        if(collision.gameObject == theKnife)
+        {
+            OutlineScript.enabled = false;
+        }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if(collision.gameObject == theKnife)
+        {
+            OutlineScript.enabled = true;
+        }
     }
 }

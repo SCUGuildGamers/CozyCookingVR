@@ -1907,6 +1907,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e8b27cd11ffb494fad6ed99f0288c76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buttonToContinue: 0
 --- !u!1 &562433039
 GameObject:
   m_ObjectHideFlags: 0
@@ -2019,6 +2020,7 @@ MonoBehaviour:
   currentGameState: 0
   numOnions: 1
   numTomato: 1
+  secondInCommand: {fileID: 531810777}
 --- !u!1 &565951916
 GameObject:
   m_ObjectHideFlags: 0
@@ -2862,6 +2864,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 845412776}
+    - targetCorrespondingSourceObject: {fileID: 1144579278055923354, guid: 02b551f3513bfc148a65452448e9bc75,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 845412783}
   m_SourcePrefab: {fileID: 100100000, guid: 02b551f3513bfc148a65452448e9bc75, type: 3}
 --- !u!4 &845412774 stripped
 Transform:
@@ -2893,6 +2899,19 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+--- !u!114 &845412783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 845412775}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5231e7cfefe93a04cbec9b8683737058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  theKnife: {fileID: 173411881}
 --- !u!1 &855625668
 GameObject:
   m_ObjectHideFlags: 0
@@ -5743,11 +5762,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1528281746}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5231e7cfefe93a04cbec9b8683737058, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  theKnife: {fileID: 173411881}
 --- !u!1 &1547448545
 GameObject:
   m_ObjectHideFlags: 0
@@ -7072,7 +7092,7 @@ PrefabInstance:
     - target: {fileID: 2246156804645847671, guid: d5d9960e1364bce4391e31dcae28bade,
         type: 3}
       propertyPath: margin
-      value: 0.4
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2246156804645847671, guid: d5d9960e1364bce4391e31dcae28bade,
         type: 3}
@@ -7082,7 +7102,7 @@ PrefabInstance:
     - target: {fileID: 2246156804645847671, guid: d5d9960e1364bce4391e31dcae28bade,
         type: 3}
       propertyPath: sliceCount
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2246156804645847671, guid: d5d9960e1364bce4391e31dcae28bade,
         type: 3}
@@ -7162,6 +7182,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 8927226711929932187}
+    - targetCorrespondingSourceObject: {fileID: 4615979383393029383, guid: d5d9960e1364bce4391e31dcae28bade,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8927226711929932194}
   m_SourcePrefab: {fileID: 100100000, guid: d5d9960e1364bce4391e31dcae28bade, type: 3}
 --- !u!4 &8927226711929932185 stripped
 Transform:
@@ -7193,6 +7217,19 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+--- !u!114 &8927226711929932194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8927226711929932186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5231e7cfefe93a04cbec9b8683737058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  theKnife: {fileID: 173411881}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
