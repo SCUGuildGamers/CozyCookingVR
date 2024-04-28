@@ -92,7 +92,7 @@ public class AudioManager : MonoBehaviour
 
     #region Loopable
 
-    public GameObject LerpLoopable(string name, Transform parent, float volume, float delay)
+    public GameObject LerpLoopable(string name, Transform parent, float delay)
     {
         GameObject audio = System.Array.Find(sounds, sound => sound.name == name);
 
@@ -103,7 +103,7 @@ public class AudioManager : MonoBehaviour
         }
 
         Loopable loopable = Instantiate(audio, parent, false).GetComponent<Loopable>();
-        StartCoroutine(loopable.Lerp(volume, delay));
+        StartCoroutine(loopable.Lerp(loopable.volume, delay));
 
         return loopable.gameObject;
     }

@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class Loopable : MonoBehaviour
 {
+    public float volume = 1f;
+
     public IEnumerator Lerp(float volume, float delay)
     {
         AudioSource loopable = GetComponent<AudioSource>();
