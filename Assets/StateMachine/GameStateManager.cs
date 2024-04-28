@@ -19,7 +19,8 @@ public class GameStateManager : Singleton<GameStateManager>
         ChopOnion,
         ChopTomato,
         BrownPork,
-        WashBockchoy
+        WashBockchoy,
+        DormTransition,
     }
 
 
@@ -76,6 +77,12 @@ public class GameStateManager : Singleton<GameStateManager>
         {
             ChangeGameState(GameState.ChopTomato);
         }
+    }
+
+    private void DormComplete()
+    {
+        Debug.Log("game state manager got the message and changing scenes"); 
+        ChangeGameState(GameState.DormTransition);
     }
 }
 

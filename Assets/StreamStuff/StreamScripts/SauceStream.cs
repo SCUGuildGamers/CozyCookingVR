@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class Stream : MonoBehaviour
+public class SauceStream : MonoBehaviour 
 {
     private LineRenderer lineRenderer = null;
 
@@ -24,7 +24,8 @@ public class Stream : MonoBehaviour
 
 
 
-    private struct info{
+    private struct info
+    {
         public bool v;
         public RaycastHit h;
         public info(bool v, RaycastHit r) : this()
@@ -48,7 +49,7 @@ public class Stream : MonoBehaviour
         MoveToPosition(0, transform.position);
         MoveToPosition(1, transform.position);
         myLayerMask = LayerMask.GetMask("Pot");
-        myLayerMask = ~myLayerMask;    
+        myLayerMask = ~myLayerMask;
     }
 
     // Update is called once per frame
@@ -64,10 +65,10 @@ public class Stream : MonoBehaviour
 
     public void Begin()
     {
-        
+
         StartCoroutine(UpdateParticle());
         pourRoutine = StartCoroutine(BeginPour());
-        
+
     }
 
     public void End()
@@ -91,7 +92,7 @@ public class Stream : MonoBehaviour
             yield return null;
         }
         Destroy(gameObject);
-        
+
     }
 
     /*
@@ -141,7 +142,7 @@ public class Stream : MonoBehaviour
     private IEnumerator BeginPour()
     {
         // play the start pour sound
-  
+
         while (gameObject.activeSelf)
         {
             if (!glugSource.isPlaying)
@@ -188,7 +189,7 @@ public class Stream : MonoBehaviour
     private void AnimateToPosition(int index, Vector3 targetPosition)
     {
         Vector3 currentPoint = lineRenderer.GetPosition(index);
-        Vector3 newPos = Vector3.MoveTowards(currentPoint, targetPosition, Time.deltaTime*1.75f); // maybe make the stream faster?
+        Vector3 newPos = Vector3.MoveTowards(currentPoint, targetPosition, Time.deltaTime * 1.75f); // maybe make the stream faster?
         lineRenderer.SetPosition(index, newPos);
     }
 
@@ -210,8 +211,10 @@ public class Stream : MonoBehaviour
             splashParticle.gameObject.SetActive(isHitting);
             if (isHitting && isFilling.v)
             {
-                liquidFill = isFilling.h.collider.gameObject.transform.GetChild(0).gameObject.GetComponent<MeshRenderer>().material;
-                liquidFill.SetFloat("_fill", liquidFill.GetFloat("_fill") + 0.0005f);
+
+
+                isFilling.h.collider.gameObject.GetComponent<PotDetector>().AddSauce();
+
                 if (!potSource.isPlaying)
                 {
                     potSource.Play();
@@ -224,26 +227,8 @@ public class Stream : MonoBehaviour
                     potSource.Stop();
                 }
             }
-            
+
             yield return null;
-        }   
-    }
-
-    public void Die()
-    {
-        Destroy(this);
-    }
-
- /* couldn't figure out the collisions with the line ask abt it later 
-    private void OnCollisionStay(Collision collision)
-    {
-        if(collision.gameObject.tag == "Fillable")
-        {
-            Debug.Log("should be filling");
-            liquidFill = collision.gameObject.transform.GetChild(0).gameObject.GetComponent<MeshRenderer>().material;
-            liquidFill.SetFloat("_fill", liquidFill.GetFloat("_fill") + 0.0005f);
         }
     }
- */
-
 }

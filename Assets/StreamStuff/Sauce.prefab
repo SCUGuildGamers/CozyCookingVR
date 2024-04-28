@@ -4864,13 +4864,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5238570228697279503}
-  - component: {fileID: 5238570228697279501}
   - component: {fileID: 5238570228697279500}
   - component: {fileID: 2768908353277764051}
   - component: {fileID: 545645655553302221}
   - component: {fileID: 1055695588428700256}
+  - component: {fileID: 25785857365303163}
   m_Layer: 0
-  m_Name: Stream
+  m_Name: Sauce
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4892,28 +4892,6 @@ Transform:
   - {fileID: 269008120}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5238570228697279501
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5238570228697279498}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3256dc7c9c64e024e8645aa456717094, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  liquidFill: {fileID: 0}
-  myLayerMask:
-    serializedVersion: 2
-    m_Bits: 243
-  potSource: {fileID: 2768908353277764051}
-  floorSource: {fileID: 545645655553302221}
-  glugSource: {fileID: 1055695588428700256}
-  hittingPot: {fileID: 8300000, guid: 8baee676bd20cc24da434ef8e57187dd, type: 3}
-  bottleGlug: {fileID: 8300000, guid: f6b1eaa9687a5e6459c7cbfc1f568777, type: 3}
-  hittingFloor: {fileID: 8300000, guid: 426609d60abee5c4385599d916ebfb96, type: 3}
 --- !u!120 &5238570228697279500
 LineRenderer:
   serializedVersion: 2
@@ -5315,3 +5293,25 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &25785857365303163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5238570228697279498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56710b7e8f9800d49a9c311e1d13029c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  liquidFill: {fileID: 0}
+  myLayerMask:
+    serializedVersion: 2
+    m_Bits: 243
+  potSource: {fileID: 2768908353277764051}
+  floorSource: {fileID: 545645655553302221}
+  glugSource: {fileID: 1055695588428700256}
+  hittingPot: {fileID: 8300000, guid: 8baee676bd20cc24da434ef8e57187dd, type: 3}
+  bottleGlug: {fileID: 8300000, guid: f6b1eaa9687a5e6459c7cbfc1f568777, type: 3}
+  hittingFloor: {fileID: 8300000, guid: 426609d60abee5c4385599d916ebfb96, type: 3}
