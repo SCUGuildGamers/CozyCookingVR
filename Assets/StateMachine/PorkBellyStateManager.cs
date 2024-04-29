@@ -30,7 +30,7 @@ public class PorkBellyStateManager : Sliceable
 
     void Update()
     {
-        if (gameObject.transform.childCount == 12)
+        if (gameObject.transform.childCount == 16)
         {
             // Might as well handle all the logic for the end of onion slice here
             // XRScript.enabled = false;
@@ -43,7 +43,7 @@ public class PorkBellyStateManager : Sliceable
     {
         // On BeginOnionChop, set the GameObject to SliceableTag so that it interacts with the thing
         XRScript.enabled = true;
-        // OutlineScript.enabled = true;
+        OutlineScript.enabled = true;
         child.layer = 6;
     }
 }

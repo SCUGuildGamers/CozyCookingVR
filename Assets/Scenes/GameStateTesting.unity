@@ -488,7 +488,7 @@ PrefabInstance:
     - target: {fileID: 5280812698581567733, guid: 6ec73671996f9d24bb24ba8697d84866,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8386462479454867357, guid: 6ec73671996f9d24bb24ba8697d84866,
         type: 3}
@@ -1108,7 +1108,6 @@ MonoBehaviour:
   margin: 0.1
   originalSize: -1
   sounds: []
-  knife: {fileID: 0}
 --- !u!114 &442875660
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1907,7 +1906,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e8b27cd11ffb494fad6ed99f0288c76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonToContinue: 0
 --- !u!1 &562433039
 GameObject:
   m_ObjectHideFlags: 0
@@ -2020,7 +2018,6 @@ MonoBehaviour:
   currentGameState: 0
   numOnions: 1
   numTomato: 1
-  secondInCommand: {fileID: 531810777}
 --- !u!1 &565951916
 GameObject:
   m_ObjectHideFlags: 0
@@ -2779,7 +2776,7 @@ PrefabInstance:
     - target: {fileID: 1144579278055923354, guid: 02b551f3513bfc148a65452448e9bc75,
         type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2290813477083373351, guid: 02b551f3513bfc148a65452448e9bc75,
         type: 3}
@@ -5645,7 +5642,7 @@ PrefabInstance:
     - target: {fileID: 711996880950758725, guid: 986ce60b04eeb014d90fcd6544828537,
         type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2329975023825348097, guid: 986ce60b04eeb014d90fcd6544828537,
         type: 3}
@@ -7092,7 +7089,7 @@ PrefabInstance:
     - target: {fileID: 2246156804645847671, guid: d5d9960e1364bce4391e31dcae28bade,
         type: 3}
       propertyPath: margin
-      value: 0.5
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 2246156804645847671, guid: d5d9960e1364bce4391e31dcae28bade,
         type: 3}

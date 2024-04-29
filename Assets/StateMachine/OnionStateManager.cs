@@ -16,7 +16,6 @@ public class OnionStateManager : Sliceable
     private Outline OutlineScript;
 
     // I believe you can just add these GameObjects from the explorer so you do not have to deal with Get() bs
-    public GameObject knife;
     GameObject child;
 
     private void Start()

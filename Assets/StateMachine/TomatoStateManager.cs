@@ -43,7 +43,7 @@ public class TomatoStateManager : Sliceable
     {
         // On BeginOnionChop, set the GameObject to SliceableTag so that it interacts with the thing
         XRScript.enabled = true;
-        // OutlineScript.enabled = true;
+        OutlineScript.enabled = true;
         child.layer = 6;
     }
 }

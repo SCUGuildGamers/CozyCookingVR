@@ -40,15 +40,15 @@ public class ButtonScript : MonoBehaviour
         }
         if (stateNum == 2)
         {
-            GameStateManager.instance.End();
+            GameStateManager.instance.EndOnionChop();
         }
-        if (stateNum == 1)
+        if (stateNum == 4)
         {
-            GameStateManager.instance.EndStartingState();
+            GameStateManager.instance.EndTomatoChop();
         }
-        if (stateNum == 1)
+        if (stateNum == 6)
         {
-            GameStateManager.instance.EndStartingState();
+            GameStateManager.instance.EndBrownPork();
         }
     }
 
@@ -73,8 +73,9 @@ public class ButtonScript : MonoBehaviour
     }
     */
 
-    private void BeginTomatoChopBook()
+    public void BeginTomatoChopBook()
     {
+
         grabInteractable.enabled = true;
         OutlineScript.enabled = true;
         stateNum++;
@@ -82,7 +83,7 @@ public class ButtonScript : MonoBehaviour
        // buttonToContinue = false;
     }
 
-    private void BeginBrownPorkBook()
+    public void BeginBrownPorkBook()
     {
         grabInteractable.enabled = true;
         OutlineScript.enabled = true;
@@ -91,7 +92,7 @@ public class ButtonScript : MonoBehaviour
         //buttonToContinue = false;
     }
 
-    private void BeginWashingBokChoyBook()
+    public void BeginWashingBokChoyBook()
     {
         grabInteractable.enabled = true;
         OutlineScript.enabled = true;

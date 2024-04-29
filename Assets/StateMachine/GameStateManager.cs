@@ -75,6 +75,7 @@ public class GameStateManager : Singleton<GameStateManager>
 
             
             case GameState.BeginTomatoChopBook:
+                Debug.Log("BeginTomatoChopBook reached!");
                 BroadcastMessage("BeginTomatoChopBook");
                 break;
             
