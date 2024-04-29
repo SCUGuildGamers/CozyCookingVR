@@ -74,13 +74,13 @@ public class PotDetector : MonoBehaviour
 
     public void SetOnStove()
     {
-        StartCoroutine(CheckForCompleteness());
-        if(bokChoyComplete && ingredientsComplete && sauceComplete)
-        { 
-            // SendMessageUpward("DormComplete");
-            
-
-        }
+        if(GameManager.Instance.currentGameState != GameManager.GameState.DormTransition)
+        {
+            if (bokChoyComplete && ingredientsComplete && sauceComplete)
+            {
+                GameManager.Instance.DormComplete();
+            }
+        } 
     }
 
     private IEnumerator CheckForCompleteness()
