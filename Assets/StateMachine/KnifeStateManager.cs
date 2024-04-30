@@ -70,13 +70,17 @@ public class KnifeStateManager : MonoBehaviour
         OutlineScript.enabled = true;
     }
 
-    // Upon entering BeginWashingBokchoy state, the knife should no longer be outlined/interacable even
-    // only trigger upon release
-    /*
-    private void BeginWashingBokchoy()
+    public void BeginBowlStep()
     {
-        finishState = true;
-    }*/
+        OutlineScript.enabled = false;
+        XRScript.enabled = false;
+    }
+
+    public void BeginBrownPork()
+    {
+        XRScript.enabled = true;
+        OutlineScript.enabled = true;
+    }
 
     public void BeginWashingBokChoy()
     {

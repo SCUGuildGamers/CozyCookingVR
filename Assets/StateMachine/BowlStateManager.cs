@@ -37,12 +37,17 @@ public class BowlStateManager : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        itemCount++;
+        if(other.tag == "Vegetable")
+        {
+            itemCount++;
+        }
+      
     }
 
     private void OnTriggerExit(Collider other)
     {
-        itemCount--;
+        if(other.tag == "Vegetable")
+            { itemCount--; }
     }
 
     public void BeginBowlStep()
@@ -51,7 +56,7 @@ public class BowlStateManager : MonoBehaviour
         correctState = true;
     }
 
-    public void BeginPorkBrown()
+    public void BeginBrownPorkBook()
     {
         outlineScript.enabled = false;
     }
