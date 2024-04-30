@@ -25,7 +25,7 @@ public class ButtonScript : MonoBehaviour
         // grabInteractable.onSelectEntered.AddListener(OnGrabbed);
         grabInteractable.onSelectExited.AddListener(OnReleased);
 
-        stateNum = 0;
+        stateNum = 1;
         //buttonToContinue = true;
     }
 
@@ -36,19 +36,23 @@ public class ButtonScript : MonoBehaviour
         OutlineScript.enabled = false;
         if(stateNum == 1)
         {
-            GameStateManager.instance.EndStartingState();
+            GameStateManager.instance.ChangeGameState(GameStateManager.GameState.BeginOnionChop);
+            stateNum++;
         }
-        if (stateNum == 2)
+        else if (stateNum == 2)
         {
-            GameStateManager.instance.EndOnionChop();
+            GameStateManager.instance.ChangeGameState(GameStateManager.GameState.BeginTomatoChop); 
+            stateNum++;
         }
-        if (stateNum == 4)
+        else if (stateNum == 3)
         {
-            GameStateManager.instance.EndTomatoChop();
+            GameStateManager.instance.ChangeGameState(GameStateManager.GameState.BeginBrownPork); 
+            stateNum++;
         }
-        if (stateNum == 6)
+        else if (stateNum == 4)
         {
-            GameStateManager.instance.EndBrownPork();
+            GameStateManager.instance.ChangeGameState(GameStateManager.GameState.BeginWashingBokChoy);
+            stateNum++;
         }
     }
 
@@ -56,11 +60,10 @@ public class ButtonScript : MonoBehaviour
 
     // for the gamestates
     
-    private void StartingState()
+    public void StartingState()
     {
         grabInteractable.enabled = true;
         OutlineScript.enabled = true;
-        stateNum++;
     }
    
     /*
@@ -78,7 +81,7 @@ public class ButtonScript : MonoBehaviour
 
         grabInteractable.enabled = true;
         OutlineScript.enabled = true;
-        stateNum++;
+  
         // cheap way to get out of the multiple button touches
        // buttonToContinue = false;
     }
@@ -87,7 +90,6 @@ public class ButtonScript : MonoBehaviour
     {
         grabInteractable.enabled = true;
         OutlineScript.enabled = true;
-        stateNum++;
         // cheap way to get out of the multiple button touches
         //buttonToContinue = false;
     }
@@ -96,7 +98,6 @@ public class ButtonScript : MonoBehaviour
     {
         grabInteractable.enabled = true;
         OutlineScript.enabled = true;
-        stateNum++;
         // cheap way to get out of the multiple button touches
         //buttonToContinue = false;
     }

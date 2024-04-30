@@ -9,12 +9,12 @@ public class KnifeStateManager : MonoBehaviour
     // Define the script components
     private XRGrabInteractable XRScript;
     private Outline OutlineScript;
-    private Outline otherOutlineScript;
+    //private Outline otherOutlineScript;
 
     // other GameObjects that might contain the outline (they need to be removed)
-    private GameObject sliceableObject;
+    //private GameObject sliceableObject;
 
-    private bool finishState;
+    //private bool finishState;
 
 
     // On start, need to get the components for both the Interactble script and the Outline script
@@ -27,17 +27,20 @@ public class KnifeStateManager : MonoBehaviour
         XRScript.onSelectEntered.AddListener(OnGrabbed);
         XRScript.onSelectExited.AddListener(OnReleased);
 
-        finishState = false;
+        //finishState = false;
     }
 
+    
     // This logic SHOULD interact with a slieceable and permanetly deactive its outline so that it can be cut
     private void OnTriggerEnter(Collider other)
     {
+        /*
         if (other.gameObject.layer == 6)
         {
             otherOutlineScript = other.GetComponent<Outline>();
             otherOutlineScript.enabled = false;
         }
+        */
     }
 
     // The following functions will handle the logic for the outline while doing through BeginOnionCHop, BeginTomatoChop, and BeginBrownPork
@@ -50,16 +53,18 @@ public class KnifeStateManager : MonoBehaviour
     private void OnReleased(XRBaseInteractor interactor)
     {
         OutlineScript.enabled = true;
+        /*
         if(finishState == true)
         {
             XRScript.enabled = false;
             OutlineScript.enabled = false;
         }
+        */
     }
 
 
     // On the first state of BeginOnionChop, it will now be interacteable + outline enabled to demonstrate such
-    private void BeginOnionChop()
+    public void BeginOnionChop()
     {
         XRScript.enabled = true;
         OutlineScript.enabled = true;
@@ -67,8 +72,9 @@ public class KnifeStateManager : MonoBehaviour
 
     // Upon entering BeginWashingBokchoy state, the knife should no longer be outlined/interacable even
     // only trigger upon release
+    /*
     private void BeginWashingBokchoy()
     {
         finishState = true;
-    }
+    }*/
 }

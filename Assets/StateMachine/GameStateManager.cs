@@ -30,7 +30,7 @@ public class GameStateManager : Singleton<GameStateManager>
         BeginBrownPorkBook,
         BeginBrownPork,
         BeginWashingBokChoyBook,
-        BeginWashingBokchoy
+        BeginWashingBokChoy
     }
 
 
@@ -104,8 +104,8 @@ public class GameStateManager : Singleton<GameStateManager>
                 break;
             
 
-            case GameState.BeginWashingBokchoy:
-                Debug.Log("BeginWashingBokchoy reached!");
+            case GameState.BeginWashingBokChoy:
+                Debug.Log("BeginWashingBokChoy reached!");
                 BroadcastMessage("BeginWashingBokChoy");
                 break;
 
@@ -114,6 +114,7 @@ public class GameStateManager : Singleton<GameStateManager>
 
 
     // For potential expansionss
+    /*
     public void EndStartingState()
     {
         ChangeGameState(GameState.BeginOnionChop);
@@ -133,6 +134,29 @@ public class GameStateManager : Singleton<GameStateManager>
     {
         ChangeGameState(GameState.BeginWashingBokChoyBook);
     }
+    public void EndWashingBokchoy()
+    {
+        // Change the state now
+    }
+    */
+
+    /*
+     * 
+     the old BeginBLANK should be the beginning of each of the item activations (namely being able to outline, grab, and cut the respectve objects)
+    They should lead to a EndBLANK function that wil lead to the BeginBLANKBook
+    this book state will then lead to the next actual Begin, and so on
+
+    remove the end gamestate, instead use GameStateManager.instance.ChangeGameState(whatever it needs to be)
+    
+    point is that the 
+
+
+   Order of operations should be:
+    Starting state (aka the first begin BOOK): 
+        book is activated, can be touched and interacted with, nothing else should be interacted with
+    
+   
+     */
 
 }
 

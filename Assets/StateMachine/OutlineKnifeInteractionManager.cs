@@ -22,6 +22,7 @@ public class OutlineKnifeInteractionManager : MonoBehaviour
         }
     }
 
+    /*
     private void OnCollisionExit(Collision collision)
     {
         if(collision.gameObject == theKnife)
@@ -29,4 +30,5 @@ public class OutlineKnifeInteractionManager : MonoBehaviour
             OutlineScript.enabled = true;
         }
     }
+    */
 }

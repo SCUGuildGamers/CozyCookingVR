@@ -18,9 +18,11 @@ public class OnionStateManager : Sliceable
     // I believe you can just add these GameObjects from the explorer so you do not have to deal with Get() bs
     GameObject child;
 
+    private bool conCheck;
+
     private void Start()
     {
-
+        conCheck = true;
         child = transform.GetChild(0).gameObject;
 
 
@@ -34,16 +36,20 @@ public class OnionStateManager : Sliceable
 
     void Update()
     {
-        if(gameObject.transform.childCount == 6)
+        if (conCheck)
         {
-            // Might as well handle all the logic for the end of onion slice here
-            // XRScript.enabled = false;
-           // OutlineScript.enabled = false;
-            GameStateManager.instance.EndOnionChop();
+            if (gameObject.transform.childCount == 6)
+            {
+                // Might as well handle all the logic for the end of onion slice here
+                // XRScript.enabled = false;
+                // OutlineScript.enabled = false;
+                GameStateManager.instance.ChangeGameState(GameStateManager.GameState.BeginTomatoChopBook);
+                conCheck = false;
+            }
         }
     }
 
-    private void BeginOnionChop()
+    public void BeginOnionChop()
     {
         // On BeginOnionChop, set the GameObject to SliceableTag so that it interacts with the thing
         XRScript.enabled = true;
