@@ -11,16 +11,27 @@ public class GameStateManager : Singleton<GameStateManager>
     public  int numOnions = 1;
     public int numTomato = 1;
 
+    // Needed in order to delay the start of a GameState until the button has been pressed
+    // public GameObject secondInCommand;
+    // private ButtonScript buttonScript;
+
 
     // Create different game states here
     public enum GameState
     {
-        Begin,
-        ChopOnion,
-        ChopTomato,
-        BrownPork,
-        WashBockchoy,
-        DormTransition,
+
+        // Note: I am using the names for two things: 
+        // 1) the actual name of the GameState
+        // 2) the functions that are being called at the beginning of the GameState
+        StartingState,
+        BeginOnionChop,
+        BeginTomatoChopBook,
+        BeginTomatoChop,
+        BeginBrownPorkBook,
+        BeginBrownPork,
+        BeginWashingBokChoyBook,
+        BeginWashingBokChoy,
+        DormTransition
     }
 
 
@@ -36,7 +47,8 @@ public class GameStateManager : Singleton<GameStateManager>
         // start with sending a message to the onions and knives
     private void Start()
     {
-        ChangeGameState(GameState.ChopOnion);
+        // buttonScript = secondInCommand.GetComponent<ButtonScript>();
+        ChangeGameState(GameState.StartingState);
     }
 
 
@@ -48,36 +60,104 @@ public class GameStateManager : Singleton<GameStateManager>
         // Implement game state functionality here
         switch (newGameState)
         {
-            case GameState.Begin:
+            
+            case GameState.StartingState:
+                Debug.Log("StartingState reached!");
+                BroadcastMessage("StartingState");
                 break;
+            
 
-            case GameState.ChopOnion:
+            case GameState.BeginOnionChop:
                 // ON ChopOnion state (which is the first one, broadcast start)
-                BroadcastMessage("OnionCutStart");
+                Debug.Log("BeginOnionChop reached!");
+            
+                BroadcastMessage("BeginOnionChop");
                 break;
 
-            case GameState.ChopTomato:
-                Debug.Log("We got to this stage");
+            
+            case GameState.BeginTomatoChopBook:
+                Debug.Log("BeginTomatoChopBook reached!");
+                BroadcastMessage("BeginTomatoChopBook");
+                break;
+            
+
+            case GameState.BeginTomatoChop:
+                Debug.Log("BeginTomatoChop reached!");
+
+                BroadcastMessage("BeginTomatoChop");
                 break;
 
-            case GameState.BrownPork:
+                
+            case GameState.BeginBrownPorkBook:
+                BroadcastMessage("BeginBrownPorkBook");
+                break;
+                
+
+            case GameState.BeginBrownPork:
+                Debug.Log("BeginBrownPork reached!");
+
+                BroadcastMessage("BeginBrownPork");
                 break;
 
-            case GameState.WashBockchoy:
+            
+            case GameState.BeginWashingBokChoyBook:
+                BroadcastMessage("BeginWashingBokchoyBook");
+                break;
+            
+
+            case GameState.BeginWashingBokChoy:
+                Debug.Log("BeginWashingBokChoy reached!");
+                BroadcastMessage("BeginWashingBokChoy");
                 break;
 
         }
     }
 
-    private void OnionSliced()
+
+    // For potential expansionss
+    /*
+    public void EndStartingState()
     {
-        Debug.Log("OnionSliced Reached");
-        numOnions--;
-        if(numOnions == 0)
-        {
-            ChangeGameState(GameState.ChopTomato);
-        }
+        ChangeGameState(GameState.BeginOnionChop);
     }
+
+    public void EndOnionChop()
+    {
+        ChangeGameState(GameState.BeginTomatoChopBook);
+    }
+
+    public void EndTomatoChop()
+    {
+        ChangeGameState(GameState.BeginBrownPorkBook);
+    }
+
+    public void EndBrownPork()
+    {
+        ChangeGameState(GameState.BeginWashingBokChoyBook);
+    }
+    public void EndWashingBokchoy()
+    {
+        // Change the state now
+    }
+    */
+
+    /*
+     * 
+     the old BeginBLANK should be the beginning of each of the item activations (namely being able to outline, grab, and cut the respectve objects)
+    They should lead to a EndBLANK function that wil lead to the BeginBLANKBook
+    this book state will then lead to the next actual Begin, and so on
+
+    remove the end gamestate, instead use GameStateManager.instance.ChangeGameState(whatever it needs to be)
+    
+    point is that the 
+
+
+   Order of operations should be:
+    Starting state (aka the first begin BOOK): 
+        book is activated, can be touched and interacted with, nothing else should be interacted with
+    
+   
+     */
 
     private void DormComplete()
     {
