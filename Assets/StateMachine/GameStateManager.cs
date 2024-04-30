@@ -27,11 +27,14 @@ public class GameStateManager : Singleton<GameStateManager>
         BeginOnionChop,
         BeginTomatoChopBook,
         BeginTomatoChop,
+        BeginBowlStepBook,
+        BeginBowlStep,
         BeginBrownPorkBook,
         BeginBrownPork,
         BeginWashingBokChoyBook,
         BeginWashingBokChoy,
-        DormTransition
+        DormTransition,
+        EndingState
     }
 
 
@@ -87,6 +90,13 @@ public class GameStateManager : Singleton<GameStateManager>
                 BroadcastMessage("BeginTomatoChop");
                 break;
 
+            case GameState.BeginBowlStepBook:
+                BroadcastMessage("BeginBowlStepBook");
+                break;
+
+            case GameState.BeginBowlStep:
+                BroadcastMessage("BeginBowlStep");
+                break;
                 
             case GameState.BeginBrownPorkBook:
                 BroadcastMessage("BeginBrownPorkBook");
@@ -101,13 +111,17 @@ public class GameStateManager : Singleton<GameStateManager>
 
             
             case GameState.BeginWashingBokChoyBook:
-                BroadcastMessage("BeginWashingBokchoyBook");
+                BroadcastMessage("BeginWashingBokChoyBook");
                 break;
             
 
             case GameState.BeginWashingBokChoy:
                 Debug.Log("BeginWashingBokChoy reached!");
                 BroadcastMessage("BeginWashingBokChoy");
+                break;
+
+            case GameState.EndingState:
+                Debug.Log("EndingState reached!  Everything should be working");
                 break;
 
         }

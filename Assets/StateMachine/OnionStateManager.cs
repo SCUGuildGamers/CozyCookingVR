@@ -38,7 +38,7 @@ public class OnionStateManager : Sliceable
     {
         if (conCheck)
         {
-            if (gameObject.transform.childCount == 6)
+            if (gameObject.transform.childCount == 7)
             {
                 // Might as well handle all the logic for the end of onion slice here
                 // XRScript.enabled = false;

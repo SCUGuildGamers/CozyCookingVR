@@ -44,12 +44,17 @@ public class ButtonScript : MonoBehaviour
             GameStateManager.instance.ChangeGameState(GameStateManager.GameState.BeginTomatoChop); 
             stateNum++;
         }
-        else if (stateNum == 3)
+        else if(stateNum == 3)
+        {
+            GameStateManager.instance.ChangeGameState(GameStateManager.GameState.BeginBowlStep);
+            stateNum++;
+        }
+        else if (stateNum == 4)
         {
             GameStateManager.instance.ChangeGameState(GameStateManager.GameState.BeginBrownPork); 
             stateNum++;
         }
-        else if (stateNum == 4)
+        else if (stateNum == 5)
         {
             GameStateManager.instance.ChangeGameState(GameStateManager.GameState.BeginWashingBokChoy);
             stateNum++;
@@ -84,6 +89,13 @@ public class ButtonScript : MonoBehaviour
   
         // cheap way to get out of the multiple button touches
        // buttonToContinue = false;
+    }
+
+    public void BeginBowlStepBook()
+    {
+        // honestly might not even make this a step given how inconsequential it is
+        grabInteractable.enabled = true;
+        OutlineScript.enabled = true;
     }
 
     public void BeginBrownPorkBook()

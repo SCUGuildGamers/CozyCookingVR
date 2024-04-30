@@ -19,7 +19,7 @@ public class PorkBellyStateManager : Sliceable
     private void Start()
     {
 
-        child = transform.GetChild(2).gameObject;
+        child = transform.GetChild(3).gameObject;
 
 
         // Define the script components (get them from the object derviced from the Sliceable)

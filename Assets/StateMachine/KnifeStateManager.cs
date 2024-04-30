@@ -77,4 +77,10 @@ public class KnifeStateManager : MonoBehaviour
     {
         finishState = true;
     }*/
+
+    public void BeginWashingBokChoy()
+    {
+        OutlineScript.enabled = false;
+        XRScript.enabled = false;
+    }
 }
