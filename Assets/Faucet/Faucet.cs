@@ -14,7 +14,7 @@ public class Faucet : MonoBehaviour
         if (!isOn)
         {
             //turn on
-            currentLoop = AudioManager.instance.LerpLoopable("faucetrunning_loop", transform, 1.0f, 2.0f);
+            currentLoop = AudioManager.instance.LerpLoopable("faucetrunning_loop", transform, 2.0f);
             isOn = true;
         }
         else

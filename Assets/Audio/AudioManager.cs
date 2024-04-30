@@ -22,6 +22,8 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    private static System.Random rnd = new System.Random();
+
     [SerializeField]
     private GameObject[] sounds;
     [SerializeField]
@@ -74,11 +76,23 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    public float RandomPlay(List<string> soundList, Transform parent)
+    {
+        int index = rnd.Next(soundList.Count);
+        GameObject audio = System.Array.Find(sounds, sound => sound.name == soundList[index]);
+        if (audio == null)
+        {
+            Debug.Log("Sound: " + name + " not found");
+            return 0f;
+        }
+        return Instantiate(audio, parent, false).GetComponent<AudioSource>().clip.length;
+    }
+
     #endregion
 
     #region Loopable
 
-    public GameObject LerpLoopable(string name, Transform parent, float volume, float delay)
+    public GameObject LerpLoopable(string name, Transform parent, float delay)
     {
         GameObject audio = System.Array.Find(sounds, sound => sound.name == name);
 
@@ -89,7 +103,7 @@ public class AudioManager : MonoBehaviour
         }
 
         Loopable loopable = Instantiate(audio, parent, false).GetComponent<Loopable>();
-        StartCoroutine(loopable.Lerp(volume, delay));
+        StartCoroutine(loopable.Lerp(loopable.volume, delay));
 
         return loopable.gameObject;
     }

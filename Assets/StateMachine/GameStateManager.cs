@@ -30,7 +30,8 @@ public class GameStateManager : Singleton<GameStateManager>
         BeginBrownPorkBook,
         BeginBrownPork,
         BeginWashingBokChoyBook,
-        BeginWashingBokChoy
+        BeginWashingBokChoy,
+        DormTransition
     }
 
 
@@ -158,5 +159,10 @@ public class GameStateManager : Singleton<GameStateManager>
    
      */
 
+    private void DormComplete()
+    {
+        Debug.Log("game state manager got the message and changing scenes"); 
+        ChangeGameState(GameState.DormTransition);
+    }
 }
 

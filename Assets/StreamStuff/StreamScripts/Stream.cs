@@ -47,6 +47,8 @@ public class Stream : MonoBehaviour
 
         MoveToPosition(0, transform.position);
         MoveToPosition(1, transform.position);
+        myLayerMask = LayerMask.GetMask("Pot");
+        myLayerMask = ~myLayerMask;    
     }
 
     // Update is called once per frame

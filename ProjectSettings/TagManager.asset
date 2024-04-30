@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Fillable
+  - BokChoy
+  - Tomato
+  - Onion
   layers:
   - Default
   - TransparentFX
@@ -14,8 +17,8 @@ TagManager:
   - UI
   - Sliceable
   - Fillable
-  - 
-  - 
+  - Pot
+  - Ingredient
   - 
   - 
   - 
