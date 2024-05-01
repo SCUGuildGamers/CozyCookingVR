@@ -16,6 +16,7 @@ MonoBehaviour:
   - Default
   - Ingredient
   - Knife
+  - Lid
   - 
   - 
   - 
@@ -44,5 +45,3 @@ MonoBehaviour:
   - 
   - 
   - 
-  - 
-  - Teleport
