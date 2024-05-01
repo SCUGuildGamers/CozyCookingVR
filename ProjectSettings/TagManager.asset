@@ -8,6 +8,7 @@ TagManager:
   - BokChoy
   - Tomato
   - Onion
+  - Vegetable
   layers:
   - Default
   - TransparentFX
