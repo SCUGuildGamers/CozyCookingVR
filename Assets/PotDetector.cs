@@ -20,6 +20,8 @@ public class PotDetector : MonoBehaviour
     public bool ingredientsComplete = false;
     public bool sauceComplete = false;
     public bool potComplete = false;
+    public bool powderComplete = false;
+    public bool waterComplete = false;
 
     public HashSet<GameObject> bokChoyInPot = new HashSet<GameObject>();
     public HashSet<GameObject> onionInPot = new HashSet<GameObject>();
@@ -58,6 +60,11 @@ public class PotDetector : MonoBehaviour
         {
             sauceComplete = true;
         }
+
+        if(liqFill.GetFloat("_fill") >= 0.57)
+        {
+            waterComplete = true;
+        }
         
         /*
         if(liqFill.GetFloat("_fill") >= 0.45)
@@ -76,21 +83,11 @@ public class PotDetector : MonoBehaviour
     {
         if(GameManager.Instance.currentGameState != GameManager.GameState.DormTransition)
         {
-            if (bokChoyComplete && ingredientsComplete && sauceComplete)
+            if (bokChoyComplete && ingredientsComplete && sauceComplete && potComplete && powderComplete)
             {
                 GameManager.Instance.DormComplete();
             }
         } 
-    }
-
-    private IEnumerator CheckForCompleteness()
-    {
-        while(!(bokChoyComplete && ingredientsComplete && sauceComplete))
-        {
-            yield return null;
-        }
-        Debug.Log("scene transition");
-        SendMessageUpwards("DormComplete");
     }
 
     public void AddSauce()
@@ -98,6 +95,20 @@ public class PotDetector : MonoBehaviour
         sauceAmount += 0.01;
     }
     
+    public void LidOn()
+    {
+        potComplete = true;
+    }
+
+    public void LidOff()
+    {
+        potComplete = false;
+    }
+
+    public void PowderAdded()
+    {
+        powderComplete = true;
+    }
 
     private void OnTriggerStay(Collider other)
     {
@@ -114,6 +125,7 @@ public class PotDetector : MonoBehaviour
             tomatoInPot.Add(other.gameObject);
         }
     }
+
 
     private void OnTriggerExit(Collider other)
     {
