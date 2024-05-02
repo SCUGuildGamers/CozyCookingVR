@@ -91,12 +91,6 @@ public class ButtonScript : MonoBehaviour
        // buttonToContinue = false;
     }
 
-    public void BeginBowlStepBook()
-    {
-        // honestly might not even make this a step given how inconsequential it is
-        grabInteractable.enabled = true;
-        OutlineScript.enabled = true;
-    }
 
     public void BeginBrownPorkBook()
     {

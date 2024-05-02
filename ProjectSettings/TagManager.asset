@@ -10,6 +10,7 @@ TagManager:
   - Onion
   - Vegetable
   - Lid
+  - PorkBelly
   layers:
   - Default
   - TransparentFX

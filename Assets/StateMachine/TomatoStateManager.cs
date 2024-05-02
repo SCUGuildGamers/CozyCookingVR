@@ -52,7 +52,7 @@ public class TomatoStateManager : Sliceable
                 // Might as well handle all the logic for the end of onion slice here
                 // XRScript.enabled = false;
                 // OutlineScript.enabled = false;
-                GameStateManager.instance.ChangeGameState(GameStateManager.GameState.BeginBowlStepBook);
+                GameStateManager.instance.ChangeGameState(GameStateManager.GameState.BeginBowlStep);
 
                 conCheck = false;
             }

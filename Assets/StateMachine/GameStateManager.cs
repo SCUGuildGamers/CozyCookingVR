@@ -27,7 +27,6 @@ public class GameStateManager : Singleton<GameStateManager>
         BeginOnionChop,
         BeginTomatoChopBook,
         BeginTomatoChop,
-        BeginBowlStepBook,
         BeginBowlStep,
         BeginBrownPorkBook,
         BeginBrownPork,
@@ -90,9 +89,6 @@ public class GameStateManager : Singleton<GameStateManager>
                 BroadcastMessage("BeginTomatoChop");
                 break;
 
-            case GameState.BeginBowlStepBook:
-                BroadcastMessage("BeginBowlStepBook");
-                break;
 
             case GameState.BeginBowlStep:
                 BroadcastMessage("BeginBowlStep");
