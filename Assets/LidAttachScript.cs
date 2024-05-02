@@ -12,10 +12,11 @@ public class LidAttachScript : MonoBehaviour
     public bool parentSet = false;
 
     private Vector3 potPosition = new Vector3(0, 0, 0);
-
+    private PotDetector potScript;
     void Start()
     {
         potTransform = Pot.GetComponent<Transform>();
+        potScript = Pot.GetComponent<PotDetector>();
     }
 
     // Update is called once per frame
@@ -29,14 +30,24 @@ public class LidAttachScript : MonoBehaviour
     {
         if (other.gameObject.tag == "Lid")
         {
-            Debug.Log("Put it down!");
+     
             if (!pickedUp && !parentSet)
             {
-                Debug.Log("Set parent!");
-                other.gameObject.transform.SetParent(potTransform, true);
-                other.gameObject.GetComponent<Rigidbody>().useGravity = false;
+             
+                potScript.LidOn();
                 parentSet = true;
             }
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "Lid")
+        {
+        
+                potScript.LidOff();
+                parentSet = false;
+            
         }
     }
 
