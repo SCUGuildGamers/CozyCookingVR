@@ -20,9 +20,9 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: GodRay
+  m_Name: HomeParticleRays
   m_Shader: {fileID: 4800000, guid: 650dd9526735d5b46b79224bc6e94025, type: 3}
-  m_Parent: {fileID: 2100000, guid: 484ace2f481320d4e8f19765e364422c, type: 2}
+  m_Parent: {fileID: 2100000, guid: 82875710760ab7048be38c1b6502d300, type: 2}
   m_ModifiedSerializedProperties: 16
   m_ValidKeywords:
   - _ALPHATEST_ON
@@ -46,6 +46,6 @@ Material:
     - _Cutoff: 0.005
     - _QueueOffset: 0
     m_Colors:
-    - _BaseColor: {r: 0.6792453, g: 0.5948202, b: 0.3812745, a: 1}
-    - _Color: {r: 0.6792453, g: 0.59482014, b: 0.38127446, a: 1}
+    - _BaseColor: {r: 0.48584908, g: 0.41794446, b: 0.24979977, a: 1}
+    - _Color: {r: 0.48584902, g: 0.41794443, b: 0.24979973, a: 1}
   m_BuildTextureStacks: []

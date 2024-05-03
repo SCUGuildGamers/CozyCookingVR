@@ -10,6 +10,7 @@ public class PotStateManager : MonoBehaviour
     private BoxCollider hitbox;
     private int itemCount;
     private bool correctState;
+    private bool playedSound;
 
     private XRGrabInteractable porkPieceScript;
 
@@ -21,13 +22,18 @@ public class PotStateManager : MonoBehaviour
 
         outlineScript.enabled = false;
         correctState = false;
+        playedSound = false;
         itemCount = 0;
     }
 
 
     private void Update()
     {
-
+        if ((itemCount == 1) && (playedSound == false))
+        {
+            AudioManager.instance.LerpLoopable("sfx_fryingmeat", transform, 2.0f);
+            playedSound = true;
+        }
         if ((itemCount == 4) && (correctState == true))
         {
             GameStateManager.instance.ChangeGameState(GameStateManager.GameState.BeginWashingBokChoyBook);
