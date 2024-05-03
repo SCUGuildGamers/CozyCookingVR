@@ -15,8 +15,7 @@ public class SliceObject : MonoBehaviour
     public Material cubeCrossSectionMat;
     public int explosionForce = 2000;
 
-    // Hugo addition (must be specified in the Explorer)
-    public GameObject SlicedObjectManager;
+    public GameObject SlicedManager;
 
     private Material replaceMaterial;
     // Start is called before the first frame update
@@ -90,8 +89,8 @@ public class SliceObject : MonoBehaviour
     // Create components, set mesh values, add explosion force, and set layer to slicable
     public void SetupSliceComponent(GameObject slicedObject, GameObject parent)
     {
-        // HUGO edit: all sliced objects are put under essentially a folder
-        slicedObject.transform.parent = SlicedObjectManager.transform;
+        slicedObject.tag = "Onion";
+        slicedObject.transform.parent = SlicedManager.transform;
 
         MeshCollider mc = slicedObject.AddComponent<MeshCollider>();
         Rigidbody rb = slicedObject.AddComponent<Rigidbody>();
