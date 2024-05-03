@@ -30,9 +30,9 @@ public class GameStateManager : Singleton<GameStateManager>
         BeginBowlStep,
         BeginBrownPorkBook,
         BeginBrownPork,
+        BeginSizzlePork,
         BeginWashingBokChoyBook,
         BeginWashingBokChoy,
-        DormTransition,
         EndingState
     }
 
@@ -72,7 +72,6 @@ public class GameStateManager : Singleton<GameStateManager>
             case GameState.BeginOnionChop:
                 // ON ChopOnion state (which is the first one, broadcast start)
                 Debug.Log("BeginOnionChop reached!");
-            
                 BroadcastMessage("BeginOnionChop");
                 break;
 
@@ -84,29 +83,35 @@ public class GameStateManager : Singleton<GameStateManager>
             
 
             case GameState.BeginTomatoChop:
-                Debug.Log("BeginTomatoChop reached!");
-
+                Debug.Log("BeginTomatoChop reached");
                 BroadcastMessage("BeginTomatoChop");
                 break;
 
 
             case GameState.BeginBowlStep:
+                Debug.Log("BeginBowlStep reached!");
                 BroadcastMessage("BeginBowlStep");
                 break;
                 
             case GameState.BeginBrownPorkBook:
+                Debug.Log("BeginBrownPorkBook reached!");
                 BroadcastMessage("BeginBrownPorkBook");
                 break;
                 
 
             case GameState.BeginBrownPork:
                 Debug.Log("BeginBrownPork reached!");
-
                 BroadcastMessage("BeginBrownPork");
+                break;
+
+            case GameState.BeginSizzlePork:
+                Debug.Log("BeginSizzlePork reached.");
+                BroadcastMessage("BeginSizzlePork");
                 break;
 
             
             case GameState.BeginWashingBokChoyBook:
+                Debug.Log("BeginWashingBokChoyBook");
                 BroadcastMessage("BeginWashingBokChoyBook");
                 break;
             
@@ -172,7 +177,7 @@ public class GameStateManager : Singleton<GameStateManager>
     private void DormComplete()
     {
         Debug.Log("game state manager got the message and changing scenes"); 
-        ChangeGameState(GameState.DormTransition);
+        ChangeGameState(GameState.EndingState);
     }
 }
 

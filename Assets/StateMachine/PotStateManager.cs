@@ -48,10 +48,15 @@ public class PotStateManager : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         if (other.tag == "Onion")
-        { itemCount--; }
-    }s
+        {
+            porkPieceScript = other.GetComponent<XRGrabInteractable>();
+            porkPieceScript.enabled = true;
 
-    public void BeginBrownPork()
+            itemCount--;
+        }
+    }
+
+    public void BeginSizzlePork()
     {
         outlineScript.enabled = true;
         correctState = true;
