@@ -22,7 +22,7 @@ public class OnionStateManager : Sliceable
 
     private void Start()
     {
-        conCheck = true;
+   
         child = transform.GetChild(0).gameObject;
 
 
@@ -38,7 +38,7 @@ public class OnionStateManager : Sliceable
     {
         if (conCheck)
         {
-            if (gameObject.transform.childCount == 7)
+            if ((gameObject.transform.childCount == 7) && (conCheck == true))
             {
                 // Might as well handle all the logic for the end of onion slice here
                 // XRScript.enabled = false;
@@ -55,5 +55,7 @@ public class OnionStateManager : Sliceable
         XRScript.enabled = true;
         OutlineScript.enabled = true;
         child.layer = 6;
+
+        conCheck = true;
     }
 }

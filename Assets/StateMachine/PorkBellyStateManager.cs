@@ -27,7 +27,6 @@ public class PorkBellyStateManager : Sliceable
         XRScript = child.GetComponent<XRGrabInteractable>();
         OutlineScript = child.GetComponent<Outline>();
 
-        conCheck = true;
 
     }
 
@@ -36,12 +35,13 @@ public class PorkBellyStateManager : Sliceable
     {
         if (conCheck)
         {
-            if (gameObject.transform.childCount == 16)
+            if ((gameObject.transform.childCount == 16) && conCheck == true)
             {
                 // Might as well handle all the logic for the end of onion slice here
                 // XRScript.enabled = false;
                 // OutlineScript.enabled = false;
-                GameStateManager.instance.ChangeGameState(GameStateManager.GameState.BeginWashingBokChoyBook);
+                GameStateManager.instance.ChangeGameState(GameStateManager.GameState.BeginSizzlePork);
+                conCheck = false;
             }
         }
         
@@ -53,5 +53,7 @@ public class PorkBellyStateManager : Sliceable
         XRScript.enabled = true;
         OutlineScript.enabled = true;
         child.layer = 6;
+
+        conCheck = true;
     }
 }

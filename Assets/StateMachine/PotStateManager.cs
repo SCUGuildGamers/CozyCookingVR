@@ -27,9 +27,11 @@ public class PotStateManager : MonoBehaviour
 
     private void Update()
     {
+
         if ((itemCount == 4) && (correctState == true))
         {
             GameStateManager.instance.ChangeGameState(GameStateManager.GameState.BeginWashingBokChoyBook);
+            correctState = false;
         }
     }
 
@@ -62,7 +64,7 @@ public class PotStateManager : MonoBehaviour
         correctState = true;
     }
 
-    public void BeginwashingBokChoyBook()
+    public void BeginWashingBokChoyBook()
     {
         outlineScript.enabled = false;
     }

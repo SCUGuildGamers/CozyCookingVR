@@ -9,6 +9,10 @@ public class KnifeStateManager : MonoBehaviour
     // Define the script components
     private XRGrabInteractable XRScript;
     private Outline OutlineScript;
+
+
+    private bool stateCheck;
+
     //private Outline otherOutlineScript;
 
     // other GameObjects that might contain the outline (they need to be removed)
@@ -20,9 +24,11 @@ public class KnifeStateManager : MonoBehaviour
     // On start, need to get the components for both the Interactble script and the Outline script
     private void Start()
     {
+        stateCheck = true;
         // Define the script components (get them from the object derviced from the Sliceable)
         XRScript = GetComponent<XRGrabInteractable>();
         OutlineScript = GetComponent<Outline>();
+
 
         XRScript.onSelectEntered.AddListener(OnGrabbed);
         XRScript.onSelectExited.AddListener(OnReleased);
@@ -52,7 +58,16 @@ public class KnifeStateManager : MonoBehaviour
     // OnRealased will include the logic to completely deactivate after BeginWashuingBokChoy is reached, but it must trigger after we let go
     private void OnReleased(XRBaseInteractor interactor)
     {
-        OutlineScript.enabled = true;
+
+        if (stateCheck == false)
+        {
+            OutlineScript.enabled = false;
+            XRScript.enabled = false;
+        }
+        else
+        {
+            OutlineScript.enabled = true;
+        }
         /*
         if(finishState == true)
         {
@@ -74,6 +89,8 @@ public class KnifeStateManager : MonoBehaviour
     {
         OutlineScript.enabled = false;
         XRScript.enabled = false;
+
+        stateCheck = false;
     }
 
     public void BeginBrownPork()
@@ -82,7 +99,13 @@ public class KnifeStateManager : MonoBehaviour
         OutlineScript.enabled = true;
     }
 
-    public void BeginWashingBokChoy()
+    public void BeginSizzlePork()
+    {
+        XRScript.enabled = false;
+        OutlineScript.enabled = false;
+    }
+
+    public void BeginWashingBokChoyBook()
     {
         OutlineScript.enabled = false;
         XRScript.enabled = false;

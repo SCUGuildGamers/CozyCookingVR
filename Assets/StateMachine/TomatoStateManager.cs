@@ -38,16 +38,13 @@ public class TomatoStateManager : Sliceable
         XRScript2 = child2.GetComponent<XRGrabInteractable>();
         OutlineScript2 = child2.GetComponent<Outline>();
 
-        conCheck = true;
 
     }
 
 
     void Update()
     {
-        if (conCheck)
-        {
-            if (gameObject.transform.childCount == 13)
+            if ((gameObject.transform.childCount == 13) && (conCheck == true))
             {
                 // Might as well handle all the logic for the end of onion slice here
                 // XRScript.enabled = false;
@@ -56,12 +53,12 @@ public class TomatoStateManager : Sliceable
 
                 conCheck = false;
             }
-        }
         
     }
 
     public void BeginTomatoChop()
     {
+        conCheck = true;
         // On BeginOnionChop, set the GameObject to SliceableTag so that it interacts with the thing
         XRScript.enabled = true;
         OutlineScript.enabled = true;

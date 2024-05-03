@@ -44,17 +44,12 @@ public class ButtonScript : MonoBehaviour
             GameStateManager.instance.ChangeGameState(GameStateManager.GameState.BeginTomatoChop); 
             stateNum++;
         }
-        else if(stateNum == 3)
-        {
-            GameStateManager.instance.ChangeGameState(GameStateManager.GameState.BeginBowlStep);
-            stateNum++;
-        }
-        else if (stateNum == 4)
+        else if (stateNum == 3)
         {
             GameStateManager.instance.ChangeGameState(GameStateManager.GameState.BeginBrownPork); 
             stateNum++;
         }
-        else if (stateNum == 5)
+        else if (stateNum == 4)
         {
             GameStateManager.instance.ChangeGameState(GameStateManager.GameState.BeginWashingBokChoy);
             stateNum++;
