@@ -7,8 +7,9 @@ public class ButtonScript : MonoBehaviour
 {
 
     // Script names 
+    [SerializeField]
     private XRGrabInteractable grabInteractable;
-    private Outline OutlineScript;
+    public  Outline OutlineScript;
 
     // Cheat code for delaying the process 
     // public bool buttonToContinue;
@@ -19,6 +20,8 @@ public class ButtonScript : MonoBehaviour
     {
         // Get reference to the XR Grab Interactable component
         grabInteractable = GetComponent<XRGrabInteractable>();
+
+        // For below just add component
         OutlineScript = GetComponent<Outline>();
 
         // Subscribe to the grab and release events

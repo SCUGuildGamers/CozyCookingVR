@@ -8,6 +8,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Scenes/Home Kitchen Original.unity
+    guid: 2e5915926f599bd4a8b557aedf65f563
+  - enabled: 1
+    path: Assets/Scenes/Dorm P1.unity
+    guid: 5ea1a03cccc38a5489c530081956c8a0
   m_configObjects:
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 5a503c153bfe4b647bf730713b114dec,
       type: 2}

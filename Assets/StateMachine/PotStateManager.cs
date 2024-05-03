@@ -11,6 +11,8 @@ public class PotStateManager : MonoBehaviour
     private int itemCount;
     private bool correctState;
 
+    private bool porkSizzle;
+
     private XRGrabInteractable porkPieceScript;
 
     void Start()
@@ -27,12 +29,16 @@ public class PotStateManager : MonoBehaviour
 
     private void Update()
     {
-
+        if(itemCount > 0)
+        {
+            AudioManager.instance.Play("sfx_fryingmeat", transform);
+        }   
         if ((itemCount == 4) && (correctState == true))
         {
             GameStateManager.instance.ChangeGameState(GameStateManager.GameState.BeginWashingBokChoyBook);
             correctState = false;
         }
+
     }
 
     private void OnTriggerEnter(Collider other)
