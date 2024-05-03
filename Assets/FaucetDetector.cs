@@ -4,19 +4,14 @@ using UnityEngine;
 
 public class FaucetDetector : MonoBehaviour
 {
-    public int pourAngle;
+
     public Transform streamOrigin;
     public GameObject streamPrefab = null;
     public GameObject water;
-    public bool notTiltedEnough;
-    public float temp;
-    public float ztemp;
-
     private Stream currentStream = null;
     public Material liqFill;
-
     public bool isPouring;
-
+    GameObject currentLoop = null;
     // both the faucet and the sauce bottles will be playing the same sound effect need to find a fix later
 
     void Start()
@@ -32,17 +27,21 @@ public class FaucetDetector : MonoBehaviour
 
     public void FaucetToggle()
     {
+        AudioManager.instance.Play(Random.value > 0.5 ? "faucetsqueak_1_oneshot" : "faucetsqueak_2_oneshot", transform);
         if (isPouring)
         {
-            Debug.Log("turn off faucet");
+            if (currentLoop != null)
+            {
+                StartCoroutine(currentLoop.GetComponent<Loopable>().LerpDestroySelf(0.0f, 2.0f));
+                currentLoop = null;
+            }
             isPouring = false;
             EndPour();
             // turn off stream
         }
         else
         {
-            // turn on stream
-            Debug.Log("turn on faucet");
+            currentLoop = AudioManager.instance.LerpLoopable("faucetrunning_loop", transform, 2.0f);
             isPouring = true;
             StartPour(); 
         }
@@ -50,7 +49,6 @@ public class FaucetDetector : MonoBehaviour
 
     private void StartPour()
     {
-        //StartCoroutine(decreaseFill());
         currentStream = CreateStream();
         currentStream.Begin();
     }
@@ -64,7 +62,6 @@ public class FaucetDetector : MonoBehaviour
     private Stream CreateStream()
     {
         GameObject steamObj = Instantiate(streamPrefab, streamOrigin.position, Quaternion.identity, transform);
-        // currentStream = steamObj;
         return steamObj.GetComponent<Stream>();
 
     }

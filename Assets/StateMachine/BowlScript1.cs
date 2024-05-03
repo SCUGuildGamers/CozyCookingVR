@@ -20,6 +20,6 @@ public class BowlScript1 : MonoBehaviour
 
     public void EndingState()
     {
-        gameObject.enabled = false;
+        //gameObject.enabled = false;
     }
 }

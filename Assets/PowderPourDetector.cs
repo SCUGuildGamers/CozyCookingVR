@@ -27,7 +27,7 @@ public class PowderPourDetector : MonoBehaviour
 
     void Start()
     {
-        tamarindPowder = particles.GetComponent<ParticleSystem>();
+        tamarindPowder = particles.GetComponent<ParticleSystem>();  
         tamarindPowder.Stop();
         myLayerMask = LayerMask.GetMask("Pot");
         myLayerMask = ~myLayerMask;

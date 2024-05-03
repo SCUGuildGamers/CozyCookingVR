@@ -13,11 +13,11 @@ public class BowlManager2 : MonoBehaviour
 
     public void StartingState()
     {
-        gameObject.enabled = false;
+        //gameObject.enabled = false;
     }
 
     public void EndingState()
     {
-        gameObject.enabled = true;
+        //gameObject.enabled = true;
     }
 }
