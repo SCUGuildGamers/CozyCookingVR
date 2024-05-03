@@ -9,6 +9,7 @@ TagManager:
   - Tomato
   - Onion
   - Vegetable
+  - Lid
   layers:
   - Default
   - TransparentFX

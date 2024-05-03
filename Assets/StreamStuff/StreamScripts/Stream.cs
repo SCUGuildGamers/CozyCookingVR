@@ -211,7 +211,7 @@ public class Stream : MonoBehaviour
             if (isHitting && isFilling.v)
             {
                 liquidFill = isFilling.h.collider.gameObject.transform.GetChild(0).gameObject.GetComponent<MeshRenderer>().material;
-                liquidFill.SetFloat("_fill", liquidFill.GetFloat("_fill") + 0.0005f);
+                liquidFill.SetFloat("_fill", liquidFill.GetFloat("_fill") + 0.0003f);
                 if (!potSource.isPlaying)
                 {
                     potSource.Play();

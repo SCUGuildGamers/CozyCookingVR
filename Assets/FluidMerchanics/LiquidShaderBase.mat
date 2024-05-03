@@ -61,7 +61,7 @@ Material:
     - _ZTest: 4
     - _ZWrite: 0
     - _ZWriteControl: 0
-    - _fill: 0.5
+    - _fill: 0.52
     m_Colors:
     - _SideColor: {r: 0.2269633, g: 0.6354179, b: 0.94716984, a: 0}
     - _TopColor: {r: 0.012609419, g: 0.50413847, b: 0.9547169, a: 0}
