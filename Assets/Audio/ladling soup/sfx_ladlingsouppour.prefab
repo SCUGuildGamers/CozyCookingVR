@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: -8909227274003897454}
   - component: {fileID: -240520953481578693}
   m_Layer: 0
-  m_Name: sfx_ladlingsoup
+  m_Name: sfx_ladlingsouppour
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45,7 +45,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: d6e79b751f4f40f42adb84296b66559e, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.5
+  m_Volume: 0.6
   m_Pitch: 0.75
   Loop: 0
   Mute: 0
