@@ -11,6 +11,8 @@ TagManager:
   - Vegetable
   - Lid
   - PorkBelly
+  - Ladle
+  - Bowl
   layers:
   - Default
   - TransparentFX
