@@ -18,13 +18,13 @@ public class TestAudio : MonoBehaviour
     public void Activate()
     {
         if (soundName != "")
-            AudioManager.instance.Play(soundName, transform);
+            AudioManager.instance.Play(soundName, transform); // copy paste this line when you want a oneshot sound to play
         if (loopName != "")
         {
             if (!isOn)
             {
                 //turn on
-                currentLoop = AudioManager.instance.LerpLoopable(loopName, transform, 2.0f);
+                currentLoop = AudioManager.instance.LerpLoopable(loopName, transform, 2.0f); // copy paste this line when you want a loopable sound to play 
                 isOn = true;
             }
             else
@@ -32,7 +32,7 @@ public class TestAudio : MonoBehaviour
                 //turn off
                 if (currentLoop != null)
                 {
-                    StartCoroutine(currentLoop.GetComponent<Loopable>().LerpDestroySelf(0.0f, 2.0f));
+                    StartCoroutine(currentLoop.GetComponent<Loopable>().LerpDestroySelf(0.0f, 2.0f)); // copy paste this line when you want to kill a loopable sound
                     currentLoop = null;
                 }
                 isOn = false;
