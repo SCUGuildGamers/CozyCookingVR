@@ -23,6 +23,8 @@ public class PotDetector : MonoBehaviour
     public bool powderComplete = false;
     public bool waterComplete = false;
 
+    public bool isOnStove = false;
+
     public HashSet<GameObject> bokChoyInPot = new HashSet<GameObject>();
     public HashSet<GameObject> onionInPot = new HashSet<GameObject>();
     public HashSet<GameObject> tomatoInPot = new HashSet<GameObject>();
@@ -38,33 +40,37 @@ public class PotDetector : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(bokChoyInPot.Count == bokChoyCountRequirement)
+        
+        if(GameManager.Instance.currentGameState == GameManager.GameState.AddVeggies)
         {
-            // this correctly checks to see if theres enough bok choy in the pot 
-            bokChoyComplete = true;
-            
+            if (onionInPot.Count == onionRequirement && tomatoInPot.Count == tomatoRequirement && bokChoyInPot.Count == bokChoyCountRequirement)
+            {
+                ingredientsComplete = true;
+                GameManager.Instance.VeggiesAdded();
+            }
+            else
+            {
+                ingredientsComplete = false;
+            }
         }
-        else
+        
+        if(GameManager.Instance.currentGameState == GameManager.GameState.AddSauce)
         {
-            bokChoyComplete = false;
+            if (sauceAmount >= sauceRequirement)
+            {
+                sauceComplete = true;
+                GameManager.Instance.SauceAdded();
+            }
         }
-        if(onionInPot.Count == onionRequirement && tomatoInPot.Count == tomatoRequirement)
+        if(GameManager.Instance.currentGameState == GameManager.GameState.NotComplete)
         {
-            ingredientsComplete = true;
+            if (liqFill.GetFloat("_fill") >= 0.57)
+            {
+                waterComplete = true;
+                GameManager.Instance.WaterAdded();
+            }
         }
-        else
-        {
-            ingredientsComplete = false;
-        }
-        if(sauceAmount >= sauceRequirement)
-        {
-            sauceComplete = true;
-        }
-
-        if(liqFill.GetFloat("_fill") >= 0.57)
-        {
-            waterComplete = true;
-        }
+        
         
         /*
         if(liqFill.GetFloat("_fill") >= 0.45)
@@ -81,6 +87,7 @@ public class PotDetector : MonoBehaviour
 
     public void SetOnStove()
     {
+        /*
         if(GameManager.Instance.currentGameState != GameManager.GameState.DormTransition)
         {
             if (bokChoyComplete && ingredientsComplete && sauceComplete && potComplete && powderComplete)
@@ -88,6 +95,17 @@ public class PotDetector : MonoBehaviour
                 GameManager.Instance.DormComplete();
             }
         } 
+        */
+       isOnStove = true;
+       if(GameManager.Instance.currentGameState == GameManager.GameState.PlaceOnStove)
+       {
+            GameManager.Instance.PotOnStove();
+       }
+    }
+
+    public void TakeOffStove()
+    {
+        isOnStove = false;
     }
 
     public void AddSauce()
@@ -98,6 +116,10 @@ public class PotDetector : MonoBehaviour
     public void LidOn()
     {
         potComplete = true;
+        if(GameManager.Instance.currentGameState == GameManager.GameState.AddLid)
+        {
+            GameManager.Instance.LidAdded();
+        }
     }
 
     public void LidOff()
@@ -107,7 +129,11 @@ public class PotDetector : MonoBehaviour
 
     public void PowderAdded()
     {
-        powderComplete = true;
+        if (GameManager.Instance.currentGameState == GameManager.GameState.AddPowder)
+        {
+            powderComplete = true;
+            GameManager.Instance.PowderAdded();
+        }
     }
 
     private void OnTriggerStay(Collider other)

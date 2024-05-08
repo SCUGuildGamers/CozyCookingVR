@@ -26,7 +26,7 @@ public class NoteSwitcher : MonoBehaviour
         PageList.Add(step6);
         PageList.Add(step7);
         PageList.Add(step8);
-        SetPage();
+        SetPage(pageIndex);
     }
 
     // Update is called once per frame
@@ -41,7 +41,7 @@ public class NoteSwitcher : MonoBehaviour
         if(pageIndex <= 2)
         {
             pageIndex += 1;
-            SetPage();
+            SetPage(pageIndex);
         }
     }
 
@@ -51,14 +51,15 @@ public class NoteSwitcher : MonoBehaviour
         if(pageIndex > 0)
         {
             pageIndex -= 1;
-            SetPage();
+            SetPage(pageIndex);
         }
        
     }
-    public void SetPage()
+    public void SetPage(int index)
     {
+        pageIndex = index;
         Material[] tempList = currentPage.materials;
-        tempList[1] = PageList[pageIndex];
+        tempList[1] = PageList[index];
         for(int i = 0; i < tempList.Length; i++)
         {
             tempPageList.Add(tempList[i]);

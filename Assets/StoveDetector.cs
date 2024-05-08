@@ -12,5 +12,12 @@ public class StoveDetector : MonoBehaviour
             other.gameObject.GetComponent<PotDetector>().SetOnStove();
         }
     }
-    
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "Fillable")
+        {
+            other.gameObject.GetComponent<PotDetector>().TakeOffStove();
+        }
+    }
 }
