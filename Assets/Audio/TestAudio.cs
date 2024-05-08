@@ -8,7 +8,7 @@ public class TestAudio : MonoBehaviour
     string soundName, loopName;
     [SerializeField]
     bool isOn = false;
-    GameObject currentLoop = null;
+    GameObject currentLoop = null; // have this line for scripts where you want audio to play
 
     private void Start()
     {
