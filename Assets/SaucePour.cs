@@ -32,7 +32,7 @@ public class SaucePour : MonoBehaviour
     {
         temp = CalcPourAngle();
         ztemp = CalcPourAngleZ();
-        notTiltedEnough = CalcPourAngle() < pourAngle && CalcPourAngleZ() < pourAngle; // false 
+        notTiltedEnough = CalcPourAngle() < pourAngle && CalcPourAngleZ() < pourAngle && CalcPourAngleX() < pourAngle; // false 
         if (!notTiltedEnough && isPouring == false)
         {
             if (liqFill.GetFloat("_fill") >= 0.445)
@@ -66,6 +66,11 @@ public class SaucePour : MonoBehaviour
     private float CalcPourAngleZ()
     {
         return Math.Abs(transform.rotation.z * Mathf.Rad2Deg);
+    }
+
+    private float CalcPourAngleX()
+    {
+        return Math.Abs(transform.rotation.x * Mathf.Rad2Deg);
     }
 
     private void StartPour()

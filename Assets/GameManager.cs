@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -94,7 +95,7 @@ public class GameManager : MonoBehaviour
                 // NoteBook.GetComponent<NoteSwitcher>().SetPage(3);
                 break;
             case GameState.AddVeggies:
-                StoveArea.GetComponent<Outline>().enabled = false;
+                //StoveArea.GetComponent<Outline>().enabled = false;
                 VeggieBowl.GetComponent<Outline>().enabled = true;
                 // turn the notebook page 
                 break;
@@ -108,6 +109,7 @@ public class GameManager : MonoBehaviour
                 Lid.GetComponent<Outline>().enabled = false;
                 Pot.GetComponent<Outline>().enabled = false;
                 Debug.Log("Changing scenes to the next kitchen");
+                StartCoroutine(SwitchScenes());
                 break;
 
         }
@@ -182,4 +184,12 @@ public class GameManager : MonoBehaviour
             ChangeGameState(GameState.DormTransition);
         }
     }
+
+    private IEnumerator SwitchScenes()
+    {
+        yield return new WaitForSeconds(3);
+        // insert fade to black code here
+        SceneManager.LoadScene(sceneName: "Home Kitchen 2");
+    }
 }
+    
