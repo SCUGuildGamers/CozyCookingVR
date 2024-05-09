@@ -22,7 +22,7 @@ public class SauceStream : MonoBehaviour
     public AudioClip bottleGlug;
     public AudioClip hittingFloor;
 
-
+    GameObject currentLoop = null;
 
     private struct info
     {
@@ -73,7 +73,7 @@ public class SauceStream : MonoBehaviour
 
     public void End()
     {
-        glugSource.Stop();
+        StartCoroutine(currentLoop.GetComponent<Loopable>().LerpDestroySelf(0.0f, 0.2f));
         StopCoroutine(pourRoutine);
         pourRoutine = StartCoroutine(EndPour());
     }
@@ -83,10 +83,12 @@ public class SauceStream : MonoBehaviour
 
         while (!hasReachedPos(0, targetPosition))
         {
+            /*
             if (glugSource.isPlaying)
             {
                 glugSource.Stop();
             }
+            */
             AnimateToPosition(0, targetPosition);
             AnimateToPosition(1, targetPosition);
             yield return null;
@@ -95,60 +97,13 @@ public class SauceStream : MonoBehaviour
 
     }
 
-    /*
-    private IEnumerator BeginPour()
-    {
-        // play the start pour sound
-        while (gameObject.activeSelf)
-        {
-            info a = FindEndPoint();
-            targetPosition = a.endPoint;
-            MoveToPosition(0, transform.position);
-            AnimateToPosition(1, targetPosition);
-            
-            if(a.v && hasReachedPos(1, targetPosition)){
-                liquidFill = a.h.collider.gameObject.transform.GetChild(0).gameObject.GetComponent<MeshRenderer>().material;
-                liquidFill.SetFloat("_fill", liquidFill.GetFloat("_fill") + 0.0005f);
-                // play filling pot sound here 
-                // play the hitting the pot sound
-            }
-            yield return null;
-
-        }
-    }
-    */
-    /*
-    private info FindEndPoint()
-    {
-        RaycastHit hit;
-        bool willFill = false;
-        Ray ray = new Ray(transform.position, Vector3.down);
-        Physics.Raycast(ray, out hit, 2.0f);
-        Vector3 endPoint = hit.collider ? hit.point : ray.GetPoint(2.0f);
-        
-        if(hit.collider.tag == "Fillable")
-        {
-            // old implementation more but fills before the water hits the pot 
-            //liquidFill = hit.collider.gameObject.transform.GetChild(0).gameObject.GetComponent<MeshRenderer>().material;
-            //liquidFill.SetFloat("_fill", liquidFill.GetFloat("_fill") + 0.0005f);
-            willFill = true;
-        }
-
-        info a = new info(endPoint, willFill, hit);
-        return a;
-    }
-    */
-
     private IEnumerator BeginPour()
     {
         // play the start pour sound
 
         while (gameObject.activeSelf)
         {
-            if (!glugSource.isPlaying)
-            {
-                glugSource.Play();
-            }
+            currentLoop = AudioManager.instance.LerpLoopable("sfx_bottleglug", transform, 2.0f);
             targetPosition = FindEndPoint();
             MoveToPosition(0, transform.position);
             AnimateToPosition(1, targetPosition);
@@ -211,23 +166,20 @@ public class SauceStream : MonoBehaviour
             splashParticle.gameObject.SetActive(isHitting);
             if (isHitting && isFilling.v)
             {
-
-
                 isFilling.h.collider.gameObject.GetComponent<PotDetector>().AddSauce();
 
                 if (!potSource.isPlaying)
                 {
-                    potSource.Play();
+                    //potSource.Play();
                 }
             }
             else if (!isFilling.v && isHitting)
             {
                 if (potSource.isPlaying)
                 {
-                    potSource.Stop();
+                    //potSource.Stop();
                 }
             }
-
             yield return null;
         }
     }

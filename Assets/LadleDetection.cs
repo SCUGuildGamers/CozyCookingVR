@@ -8,6 +8,8 @@ public class LadleDetection : MonoBehaviour
     public GameObject SoupObject;
 
     public bool hasSoup = false;
+
+    GameObject currentLoop = null;
     void Start()
     {
         SoupObject.SetActive(false);
@@ -25,7 +27,7 @@ public class LadleDetection : MonoBehaviour
         {
             SoupObject.SetActive(true);
             hasSoup = true;
-            Debug.Log("soup in ladle");
+            AudioManager.instance.Play("sfx_ladlingsoupenter", transform);
         }   
         if(other.gameObject.tag == "Bowl")
         {
@@ -33,7 +35,7 @@ public class LadleDetection : MonoBehaviour
             hasSoup = false;
             // call some function with getcomponent to increase the size/height of the soup level in the bowl
             other.gameObject.GetComponent<BowlScript1>().FillBowl();
-            Debug.Log("soup in bowl");
+            AudioManager.instance.Play("sfx_ladlingsouppour", transform);
         }
        
     }

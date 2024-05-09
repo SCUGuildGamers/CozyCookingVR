@@ -19,6 +19,7 @@ public class NoteSwitcher : MonoBehaviour
     private List<Material> tempPageList = new List<Material>();
     private int pageIndex = 0;
 
+    GameObject currentLoop = null;
     void Start()
     {
         currentPage = Paper.GetComponent<MeshRenderer>();
@@ -60,11 +61,27 @@ public class NoteSwitcher : MonoBehaviour
         pageIndex = index;
         Material[] tempList = currentPage.materials;
         tempList[1] = PageList[index];
+        FlippedPage();
         for(int i = 0; i < tempList.Length; i++)
         {
             tempPageList.Add(tempList[i]);
         }
         currentPage.SetMaterials(tempPageList);
         tempPageList.Clear();
+    }
+
+    public void PickedUpBook()
+    {
+        AudioManager.instance.Play("sfx_pickingupnotebook", transform);
+    }
+
+    public void PutDownBook()
+    {
+        AudioManager.instance.Play("sfx_lettinggonotebook", transform);
+    }
+
+    public void FlippedPage()
+    {
+        AudioManager.instance.Play("sfx_turningpage", transform);
     }
 }

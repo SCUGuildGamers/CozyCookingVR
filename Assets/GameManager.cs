@@ -19,15 +19,6 @@ public class GameManager : MonoBehaviour
 
     public GameObject NoteBook;
 
-    private Outline potOutline;
-    private Outline sinkOutline;
-    private Outline sauceOutline;
-    private Outline powderOutline;
-    private Outline stoveAreaOutline;
-    private Outline bowlOutline;
-    private Outline lidOutline;
-
-
     // Variable for number of tomatoes and onions that need to be ut
     public int numOnions = 1;
     public int numTomato = 1;
