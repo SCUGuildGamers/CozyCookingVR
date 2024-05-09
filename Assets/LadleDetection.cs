@@ -32,6 +32,7 @@ public class LadleDetection : MonoBehaviour
             SoupObject.SetActive(false);
             hasSoup = false;
             // call some function with getcomponent to increase the size/height of the soup level in the bowl
+            other.gameObject.GetComponent<BowlScript1>().FillBowl();
             Debug.Log("soup in bowl");
         }
        
