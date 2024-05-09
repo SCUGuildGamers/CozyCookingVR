@@ -20,11 +20,11 @@ RenderSettings:
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
-  m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
-  m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
+  m_AmbientSkyColor: {r: 0.6362335, g: 0.7283019, b: 0.67137367, a: 1}
+  m_AmbientEquatorColor: {r: 0.22353144, g: 0.2603773, b: 0.24809535, a: 1}
+  m_AmbientGroundColor: {r: 0.49520117, g: 0.5924529, b: 0.5617168, a: 1}
   m_AmbientIntensity: 0.76
-  m_AmbientMode: 0
+  m_AmbientMode: 1
   m_SubtractiveShadowColor: {r: 0.41960785, g: 0.5584036, b: 0.627451, a: 1}
   m_SkyboxMaterial: {fileID: 2100000, guid: 56113b3b655ab7349bab4d7d405c258a, type: 2}
   m_HaloStrength: 0.5
@@ -35,10 +35,10 @@ RenderSettings:
   m_DefaultReflectionMode: 0
   m_DefaultReflectionResolution: 128
   m_ReflectionBounces: 1
-  m_ReflectionIntensity: 1
+  m_ReflectionIntensity: 0.152
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 410087040}
-  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
+  m_IndirectSpecularColor: {r: 0.03678143, g: 0.091893606, b: 0.14996795, a: 0.152}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 112000000, guid: e30200b249ba6d648a47954c8c14d5a5,
+  m_LightingDataAsset: {fileID: 112000000, guid: 54895dcc45f287d4b9c14161f2d6c4a9,
     type: 2}
   m_LightingSettings: {fileID: 4890085278179872738, guid: 07eafa669fe467144942b664f5ab8883,
     type: 2}
@@ -7870,7 +7870,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ca1ba4597a48ace4684ea13e1137620a, type: 2}
+  - {fileID: 2100000, guid: ede487556127594408792312a70bfe65, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -7908,13 +7908,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 855615688}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: 0.000000014901161, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0.9999228, w: -0.0124250995}
   m_LocalPosition: {x: 2.1633353, y: 1.537239, z: 0.307014}
   m_LocalScale: {x: 4.6831207, y: 0.12448949, z: 7.090907}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 486084648}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -181.424}
 --- !u!1 &856447389
 GameObject:
   m_ObjectHideFlags: 0
@@ -16076,7 +16076,7 @@ Transform:
   m_GameObject: {fileID: 1255036866}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.000000014901161, w: 1}
-  m_LocalPosition: {x: 6.2733355, y: 1.5372391, z: 3.6140141}
+  m_LocalPosition: {x: 7.59, y: 1.54, z: 3.6140141}
   m_LocalScale: {x: 6.1025743, y: 0.12448949, z: 11.267451}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -16781,7 +16781,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0

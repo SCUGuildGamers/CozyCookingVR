@@ -73,7 +73,7 @@ public class SauceStream : MonoBehaviour
 
     public void End()
     {
-        StartCoroutine(currentLoop.GetComponent<Loopable>().LerpDestroySelf(0.0f, 0.2f));
+        StartCoroutine(currentLoop.GetComponent<Loopable>().LerpDestroySelf(0.0f, 0.0f));
         StopCoroutine(pourRoutine);
         pourRoutine = StartCoroutine(EndPour());
     }
@@ -103,7 +103,10 @@ public class SauceStream : MonoBehaviour
 
         while (gameObject.activeSelf)
         {
-            currentLoop = AudioManager.instance.LerpLoopable("sfx_bottleglug", transform, 2.0f);
+            if(currentLoop == null)
+            {
+                currentLoop = AudioManager.instance.LerpLoopable("sfx_bottleglug", transform, 0.0f);
+            }
             targetPosition = FindEndPoint();
             MoveToPosition(0, transform.position);
             AnimateToPosition(1, targetPosition);

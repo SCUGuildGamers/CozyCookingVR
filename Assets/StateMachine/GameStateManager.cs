@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameStateManager : Singleton<GameStateManager>
+public class GameStateManager : MonoBehaviour
 {
 
     public GameState currentGameState;
+    public static GameStateManager instance;
 
     // Variable for number of tomatoes and onions that need to be ut
     public  int numOnions = 1;
@@ -39,11 +40,12 @@ public class GameStateManager : Singleton<GameStateManager>
 
 
     // Ignore the state function for now
+    /*
     public override void Awake()
     {
-        base.Awake();
+        //base.Awake();
     }
-
+    */
 
     // Start with the ChopOnion State
     // Things that need to be taken care of in ChopOnion:
@@ -51,6 +53,7 @@ public class GameStateManager : Singleton<GameStateManager>
     private void Start()
     {
         // buttonScript = secondInCommand.GetComponent<ButtonScript>();
+        instance = this;
         ChangeGameState(GameState.StartingState);
     }
 
