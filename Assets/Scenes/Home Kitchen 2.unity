@@ -690,7 +690,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -2266,7 +2266,7 @@ ParticleSystem:
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
   emitterVelocityMode: 1
-  looping: 0
+  looping: 1
   prewarm: 0
   playOnAwake: 0
   useUnscaledTime: 0
@@ -17562,7 +17562,7 @@ Transform:
   m_GameObject: {fileID: 540438077}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.8141155, z: -0, w: 0.5807029}
-  m_LocalPosition: {x: 0, y: 0.0181, z: 0}
+  m_LocalPosition: {x: 0, y: 0.0424, z: 0}
   m_LocalScale: {x: 0.13228734, y: 0.015671011, z: 0.13938498}
   m_ConstrainProportionsScale: 0
   m_Children: []
