@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BowlScript1 : MonoBehaviour
 {
@@ -47,7 +48,14 @@ public class BowlScript1 : MonoBehaviour
             soup2.SetActive(false);
             soup3.SetActive(true);
             // this is where you change the gamestate to change scenes 
+            StartCoroutine(SwitchScenes());
         }
 
+    }
+    private IEnumerator SwitchScenes()
+    {
+        yield return new WaitForSeconds(3);
+        // insert fade to black code here
+        SceneManager.LoadScene(sceneName: "Dorm P3");
     }
 }

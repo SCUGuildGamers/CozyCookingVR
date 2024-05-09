@@ -31,10 +31,13 @@ public class PotDetector : MonoBehaviour
     public GameObject water;
 
     public Material liqFill;
+    GameObject currentLoop = null;
+    private bool meatSoundPlaying = true;
 
     void Start()
     {
         liqFill = water.GetComponent<MeshRenderer>().material;
+        currentLoop = AudioManager.instance.LerpLoopable("sfx_fryingmeat", transform, 2.0f);
     }
 
     // Update is called once per frame
@@ -64,7 +67,12 @@ public class PotDetector : MonoBehaviour
         }
         if(GameManager.Instance.currentGameState == GameManager.GameState.NotComplete)
         {
-            if (liqFill.GetFloat("_fill") >= 0.57)
+            if (meatSoundPlaying && liqFill.GetFloat("_fill") >= 0.53)
+            {
+                StartCoroutine(currentLoop.GetComponent<Loopable>().LerpDestroySelf(0.0f, 1.0f));
+                meatSoundPlaying = false;
+            }
+            else if (liqFill.GetFloat("_fill") >= 0.57)
             {
                 waterComplete = true;
                 GameManager.Instance.WaterAdded();
@@ -99,6 +107,8 @@ public class PotDetector : MonoBehaviour
        isOnStove = true;
        if(GameManager.Instance.currentGameState == GameManager.GameState.PlaceOnStove)
        {
+            currentLoop = AudioManager.instance.LerpLoopable("sfx_boilingwater", transform, 10.0f);
+            // maybe start a coroutine to start a smoke particle effect above the pot?
             GameManager.Instance.PotOnStove();
        }
     }
@@ -152,6 +162,13 @@ public class PotDetector : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "BokChoy" || other.gameObject.tag == "Tomato" || other.gameObject.tag == "Onion")
+        {
+            AudioManager.instance.Play("sfx_addedingredient", transform);
+        }
+    }
 
     private void OnTriggerExit(Collider other)
     {

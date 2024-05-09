@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameStateManager : Singleton<GameStateManager>
 {
@@ -123,11 +124,18 @@ public class GameStateManager : Singleton<GameStateManager>
 
             case GameState.EndingState:
                 Debug.Log("EndingState reached!  Everything should be working");
+                StartCoroutine(SwitchScenes());
                 break;
 
         }
     }
 
+    private IEnumerator SwitchScenes()
+    {
+        yield return new WaitForSeconds(3);
+        // insert fade to black code here
+        SceneManager.LoadScene(sceneName: "Dorm P1");
+    }
 
     
 }
