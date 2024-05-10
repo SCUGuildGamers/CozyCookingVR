@@ -43,7 +43,7 @@ public class OnionStateManager : Sliceable
                 // Might as well handle all the logic for the end of onion slice here
                 // XRScript.enabled = false;
                 // OutlineScript.enabled = false;
-                GameStateManager.instance.ChangeGameState(GameStateManager.GameState.BeginTomatoChopBook);
+                GameStateManager.instance.ChangeGameState(GameStateManager.GameState.BeginTomatoChop);  //this is the thing that i changed 
                 conCheck = false;
             }
         }

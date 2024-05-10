@@ -35,7 +35,7 @@ public class PotStateManager : MonoBehaviour
         }   
         if ((itemCount == 4) && (correctState == true))
         {
-            GameStateManager.instance.ChangeGameState(GameStateManager.GameState.BeginWashingBokChoyBook);
+            GameStateManager.instance.ChangeGameState(GameStateManager.GameState.BeginWashingBokChoy);
             correctState = false;
         }
 

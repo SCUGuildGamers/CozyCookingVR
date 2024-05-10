@@ -31,7 +31,7 @@ public class BowlStateManager : MonoBehaviour
     {
         if((itemCount == 12) && (correctState == true))
         {
-            GameStateManager.instance.ChangeGameState(GameStateManager.GameState.BeginBrownPorkBook);
+            GameStateManager.instance.ChangeGameState(GameStateManager.GameState.BeginBrownPork);
             correctState = false;
         }
     }

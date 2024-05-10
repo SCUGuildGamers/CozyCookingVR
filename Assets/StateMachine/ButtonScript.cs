@@ -44,7 +44,7 @@ public class ButtonScript : MonoBehaviour
         }
         else if (stateNum == 2)
         {
-            GameStateManager.instance.ChangeGameState(GameStateManager.GameState.BeginTomatoChop); 
+            GameStateManager.instance.ChangeGameState(GameStateManager.GameState.BeginTomatoChop);
             stateNum++;
         }
         else if (stateNum == 3)
