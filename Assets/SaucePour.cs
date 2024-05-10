@@ -16,6 +16,7 @@ public class SaucePour : MonoBehaviour
     public float ztemp;
 
     private SauceStream currentStream = null;
+    GameObject currentLoop = null;
     public Material liqFill;
 
     public bool isPouring;
