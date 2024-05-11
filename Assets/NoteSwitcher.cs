@@ -14,6 +14,7 @@ public class NoteSwitcher : MonoBehaviour
     public Material step6;
     public Material step7;
     public Material step8;
+    public Material step9;
 
     private List<Material> PageList = new List<Material>();
     private List<Material> tempPageList = new List<Material>();
@@ -27,6 +28,7 @@ public class NoteSwitcher : MonoBehaviour
         PageList.Add(step6);
         PageList.Add(step7);
         PageList.Add(step8);
+        PageList.Add(step9);
         SetPage(pageIndex);
     }
 
@@ -39,7 +41,7 @@ public class NoteSwitcher : MonoBehaviour
     public void NextPage()
     {
         Debug.Log("next button pressed");
-        if(pageIndex <= 2)
+        if(pageIndex <= 3)
         {
             pageIndex += 1;
             SetPage(pageIndex);

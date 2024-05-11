@@ -15,6 +15,8 @@ public class PotStateManager : MonoBehaviour
 
     private XRGrabInteractable porkPieceScript;
 
+    GameObject currentLoop = null;
+
     void Start()
     {
 
@@ -31,7 +33,10 @@ public class PotStateManager : MonoBehaviour
     {
         if(itemCount > 0)
         {
-            AudioManager.instance.Play("sfx_fryingmeat", transform);
+            if(currentLoop == null)
+            {
+                currentLoop = AudioManager.instance.LerpLoopable("sfx_fryingmeat", transform, 2.0f);
+            }
         }   
         if ((itemCount == 4) && (correctState == true))
         {

@@ -14,7 +14,7 @@ public class PowderPourDetector : MonoBehaviour
     private float temp;
     private float ztemp;
 
-    private double powderRequirement = 3.0;
+    private double powderRequirement = 1.0;
     private double powderAmount = 0.0;
 
     public bool isPouring;

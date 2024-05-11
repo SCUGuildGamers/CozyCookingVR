@@ -83,16 +83,18 @@ public class GameManager : MonoBehaviour
             case GameState.PlaceOnStove:
                 Powder.GetComponent<Outline>().enabled = false;
                 StoveArea.GetComponent<Outline>().enabled = true;
-                // NoteBook.GetComponent<NoteSwitcher>().SetPage(3);
+                NoteBook.GetComponent<NoteSwitcher>().SetPage(3);
                 break;
             case GameState.AddVeggies:
                 //StoveArea.GetComponent<Outline>().enabled = false;
                 VeggieBowl.GetComponent<Outline>().enabled = true;
+
                 // turn the notebook page 
                 break;
             case GameState.AddLid:
                 VeggieBowl.GetComponent<Outline>().enabled = false;
                 Lid.GetComponent<Outline>().enabled = true;
+                NoteBook.GetComponent<NoteSwitcher>().SetPage(4);
                 // turn the notebook page?
                 break;
             case GameState.DormTransition:

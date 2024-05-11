@@ -11,7 +11,7 @@ public class PotDetector : MonoBehaviour
     public int bokChoyCountRequirement = 2;
     public int tomatoRequirement = 1;
     public int onionRequirement = 1;
-    public int sauceRequirement = 1;
+    public double sauceRequirement = .10;
 
     public int boyChoyCount = 0;
     public double sauceAmount = 0.0;
@@ -46,7 +46,7 @@ public class PotDetector : MonoBehaviour
         
         if(GameManager.Instance.currentGameState == GameManager.GameState.AddVeggies)
         {
-            if (onionInPot.Count == onionRequirement && tomatoInPot.Count == tomatoRequirement && bokChoyInPot.Count == bokChoyCountRequirement)
+            if (onionInPot.Count >= onionRequirement && tomatoInPot.Count >= tomatoRequirement && bokChoyInPot.Count >= bokChoyCountRequirement)
             {
                 ingredientsComplete = true;
                 GameManager.Instance.VeggiesAdded();
@@ -78,8 +78,17 @@ public class PotDetector : MonoBehaviour
                 GameManager.Instance.WaterAdded();
             }
         }
-        
-        
+
+        if (Keyboard.current.quoteKey.wasPressedThisFrame)
+        {
+            Debug.Log("bok choy count = " + bokChoyInPot.Count);
+
+            Debug.Log("tomato count = " + tomatoInPot.Count);
+
+            Debug.Log("onion count = " + onionInPot.Count);
+        }
+
+
         /*
         if(liqFill.GetFloat("_fill") >= 0.45)
         {
@@ -150,24 +159,29 @@ public class PotDetector : MonoBehaviour
     {
         if (other.gameObject.tag == "BokChoy")
         {
+            Debug.Log("added bok choy");
             bokChoyInPot.Add(other.gameObject);
         }
         if (other.gameObject.tag == "Tomato")
         {
-            onionInPot.Add(other.gameObject);
+            Debug.Log("added tomato");
+            tomatoInPot.Add(other.gameObject);
         }
         if (other.gameObject.tag == "Onion")
         {
-            tomatoInPot.Add(other.gameObject);
+            Debug.Log("added onion");
+            onionInPot.Add(other.gameObject);
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
+        /*
         if (other.gameObject.tag == "BokChoy" || other.gameObject.tag == "Tomato" || other.gameObject.tag == "Onion")
         {
             AudioManager.instance.Play("sfx_addedingredient", transform);
         }
+        */
     }
 
     private void OnTriggerExit(Collider other)

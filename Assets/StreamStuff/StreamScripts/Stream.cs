@@ -55,11 +55,7 @@ public class Stream : MonoBehaviour
     void Update()
     {
         //Debug.Log(targetPosition); 
-        if (Keyboard.current.quoteKey.wasPressedThisFrame)
-        {
-            Debug.Log("should be gluggin");
-            glugSource.Play();
-        }
+     
     }
 
     public void Begin()
@@ -72,7 +68,7 @@ public class Stream : MonoBehaviour
 
     public void End()
     {
-        glugSource.Stop();
+  
         StopCoroutine(pourRoutine);
         pourRoutine = StartCoroutine(EndPour());
     }
@@ -82,10 +78,7 @@ public class Stream : MonoBehaviour
 
         while (!hasReachedPos(0, targetPosition))
         {
-            if (glugSource.isPlaying)
-            {
-                glugSource.Stop();
-            }
+
             AnimateToPosition(0, targetPosition);
             AnimateToPosition(1, targetPosition);
             yield return null;
@@ -144,10 +137,7 @@ public class Stream : MonoBehaviour
   
         while (gameObject.activeSelf)
         {
-            if (!glugSource.isPlaying)
-            {
-                glugSource.Play();
-            }
+
             targetPosition = FindEndPoint();
             MoveToPosition(0, transform.position);
             AnimateToPosition(1, targetPosition);
@@ -212,17 +202,11 @@ public class Stream : MonoBehaviour
             {
                 liquidFill = isFilling.h.collider.gameObject.transform.GetChild(0).gameObject.GetComponent<MeshRenderer>().material;
                 liquidFill.SetFloat("_fill", liquidFill.GetFloat("_fill") + 0.0003f);
-                if (!potSource.isPlaying)
-                {
-                    potSource.Play();
-                }
+              
             }
             else if (!isFilling.v && isHitting)
             {
-                if (potSource.isPlaying)
-                {
-                    potSource.Stop();
-                }
+                
             }
             
             yield return null;
@@ -234,16 +218,5 @@ public class Stream : MonoBehaviour
         Destroy(this);
     }
 
- /* couldn't figure out the collisions with the line ask abt it later 
-    private void OnCollisionStay(Collision collision)
-    {
-        if(collision.gameObject.tag == "Fillable")
-        {
-            Debug.Log("should be filling");
-            liquidFill = collision.gameObject.transform.GetChild(0).gameObject.GetComponent<MeshRenderer>().material;
-            liquidFill.SetFloat("_fill", liquidFill.GetFloat("_fill") + 0.0005f);
-        }
-    }
- */
 
 }

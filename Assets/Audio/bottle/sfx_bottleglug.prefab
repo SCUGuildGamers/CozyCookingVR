@@ -141,4 +141,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3be5fcee4cd9f414eaa43bf9cdd46d88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  volume: 0.25
+  volume: 0.008

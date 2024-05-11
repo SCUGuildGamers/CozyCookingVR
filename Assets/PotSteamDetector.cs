@@ -6,21 +6,23 @@ public class PotSteamDetector : MonoBehaviour
 {
     // Start is called before the first frame update
 
-    public GameObject Pot;
+    //public GameObject Pot;
 
     public bool pickedUp = false;
 
     public GameObject Steam;
+
+    private ParticleSystem steamSystem;
     void Start()
     {
-        
+        steamSystem = Steam.GetComponent<ParticleSystem>();
     }
 
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.tag == "Lid")
         {
-            // Steam.Play();
+            steamSystem.Play();
         }
     }
 
@@ -28,7 +30,7 @@ public class PotSteamDetector : MonoBehaviour
     {
         if (other.gameObject.tag == "Lid")
         {
-            //Steam.Stop();   
+            steamSystem.Stop();   
         }
     }
 
