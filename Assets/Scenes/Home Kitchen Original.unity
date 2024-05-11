@@ -23203,6 +23203,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: KnifeSocket
       objectReference: {fileID: 0}
+    - target: {fileID: 2751938607480727681, guid: 8e190efad590aee4d9dc6b0075f8a6c4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2751938607480960161, guid: 8e190efad590aee4d9dc6b0075f8a6c4,
         type: 3}
       propertyPath: m_LocalPosition.x

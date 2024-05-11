@@ -2635,6 +2635,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 711996880950758725, guid: 986ce60b04eeb014d90fcd6544828537,
         type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 711996880950758725, guid: 986ce60b04eeb014d90fcd6544828537,
+        type: 3}
       propertyPath: m_TagString
       value: Onion
       objectReference: {fileID: 0}
@@ -3752,6 +3757,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1144579278055923354, guid: 02b551f3513bfc148a65452448e9bc75,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1144579278055923354, guid: 02b551f3513bfc148a65452448e9bc75,
         type: 3}
@@ -15677,7 +15687,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1025053731}
   - component: {fileID: 1025053733}
-  - component: {fileID: 1025053732}
+  - component: {fileID: 1025053734}
   m_Layer: 8
   m_Name: Cylinder
   m_TagString: Untagged
@@ -15694,14 +15704,22 @@ Transform:
   m_GameObject: {fileID: 1025053730}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.0131, z: 0}
+  m_LocalPosition: {x: 0, y: 0.027, z: 0}
   m_LocalScale: {x: 0.1328, y: 0.037041344, z: -0.136195}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1559336100}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!136 &1025053732
-CapsuleCollider:
+--- !u!33 &1025053733
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1025053730}
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!135 &1025053734
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -15713,24 +15731,14 @@ CapsuleCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 0
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5421401
-  m_Height: 5.785071
-  m_Direction: 1
-  m_Center: {x: -0.043217182, y: 0.8991744, z: -0.000000109410486}
---- !u!33 &1025053733
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1025053730}
-  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+  serializedVersion: 3
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1038488529
 GameObject:
   m_ObjectHideFlags: 0
@@ -15898,7 +15906,7 @@ PrefabInstance:
     - target: {fileID: 4782186107319813423, guid: b28362c1df72844ea8847a223ed824b8,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.8517792
+      value: 0.827
       objectReference: {fileID: 0}
     - target: {fileID: 4782186107319813423, guid: b28362c1df72844ea8847a223ed824b8,
         type: 3}
