@@ -90,7 +90,7 @@ public class SliceObject : MonoBehaviour
     // Create components, set mesh values, add explosion force, and set layer to slicable
     public void SetupSliceComponent(GameObject slicedObject, GameObject parent)
     {
-        slicedObject.tag = "Onion";
+        slicedObject.tag = parent.tag;
         slicedObject.transform.parent = SlicedManager.transform;
 
         MeshCollider mc = slicedObject.AddComponent<MeshCollider>();

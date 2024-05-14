@@ -48,9 +48,9 @@ public class PotStateManager : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Onion")
+        if (other.gameObject.tag == "PorkBelly")
         {
-            porkPieceScript = other.GetComponent<XRGrabInteractable>();
+            porkPieceScript = other.gameObject.GetComponent<XRGrabInteractable>();
             porkPieceScript.enabled = false;
             
             itemCount++;
@@ -60,9 +60,9 @@ public class PotStateManager : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.tag == "Onion")
+        if (other.gameObject.tag == "PorkBelly")
         {
-            porkPieceScript = other.GetComponent<XRGrabInteractable>();
+            porkPieceScript = other.gameObject.GetComponent<XRGrabInteractable>();
             porkPieceScript.enabled = true;
 
             itemCount--;

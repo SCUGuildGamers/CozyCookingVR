@@ -11166,8 +11166,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: NoteSwitcher, Assembly-CSharp
+      - m_Target: {fileID: 919132148033557650}
+        m_TargetAssemblyTypeName: NoteSwitcherKitchen, Assembly-CSharp
         m_MethodName: LastPage
         m_Mode: 1
         m_Arguments:
@@ -17146,14 +17146,6 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 831244120}
-    - targetCorrespondingSourceObject: {fileID: 5266515844613758869, guid: b28362c1df72844ea8847a223ed824b8,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 831244119}
-    - targetCorrespondingSourceObject: {fileID: 5266515844613758869, guid: b28362c1df72844ea8847a223ed824b8,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 831244118}
   m_SourcePrefab: {fileID: 100100000, guid: b28362c1df72844ea8847a223ed824b8, type: 3}
 --- !u!4 &831244116 stripped
 Transform:
@@ -17167,36 +17159,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 831244115}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &831244118
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 831244117}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d3d28a0d0007eae499a2691b994738b9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &831244119
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 831244117}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 1, g: 1, b: 0, a: 1}
-  outlineWidth: 4
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!65 &831244120
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -22117,8 +22079,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: NoteSwitcher, Assembly-CSharp
+      - m_Target: {fileID: 919132148033557650}
+        m_TargetAssemblyTypeName: NoteSwitcherKitchen, Assembly-CSharp
         m_MethodName: NextPage
         m_Mode: 1
         m_Arguments:
@@ -39460,13 +39422,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1887924292}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0.92387956, z: 0.38268343, w: 0}
+  m_LocalRotation: {x: 0, y: 0.89100677, z: -0.45399022, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0.0679}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 543450652573879860}
-  m_LocalEulerAnglesHint: {x: -45, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: -234, y: 360, z: -180}
 --- !u!4 &1890990240 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 810690863369153059, guid: f40d328f8b37cac46ab2d51c43bd869d,
