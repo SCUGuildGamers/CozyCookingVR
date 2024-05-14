@@ -32,11 +32,11 @@ public class TomatoStateManager : Sliceable
         // Define the script components (get them from the object derviced from the Sliceable)
         SliceableComponent = child.GetComponent<Sliceable>();
         XRScript = child.GetComponent<XRGrabInteractable>();
-        OutlineScript = child.GetComponent<Outline>();
+        OutlineScript = child.transform.GetChild(0).GetComponent<Outline>();
 
         SliceableComponent2 = child2.GetComponent<Sliceable>();
         XRScript2 = child2.GetComponent<XRGrabInteractable>();
-        OutlineScript2 = child2.GetComponent<Outline>();
+        OutlineScript2 = child2.transform.GetChild(0).GetComponent<Outline>();
 
 
     }

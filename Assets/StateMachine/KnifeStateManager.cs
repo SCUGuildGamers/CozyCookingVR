@@ -49,6 +49,16 @@ public class KnifeStateManager : MonoBehaviour
         */
     }
 
+    private void OnTriggerEnter(Collision collision)
+    {
+        if (collision.gameObject.layer == 6)
+        {
+            Debug.Log("Deactivate the outline");
+            collision.gameObject.GetComponent<Outline>().enabled = false;
+        }
+        
+    }
+
     // The following functions will handle the logic for the outline while doing through BeginOnionCHop, BeginTomatoChop, and BeginBrownPork
     private void OnGrabbed(XRBaseInteractor interactor)
     {

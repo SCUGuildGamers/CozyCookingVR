@@ -29,7 +29,7 @@ public class OnionStateManager : Sliceable
         // Define the script components (get them from the object derviced from the Sliceable)
         SliceableComponent = child.GetComponent<Sliceable>();
         XRScript = child.GetComponent<XRGrabInteractable>();
-        OutlineScript = child.GetComponent<Outline>();
+        OutlineScript = child.transform.GetChild(0).GetComponent<Outline>();
 
     }
 
