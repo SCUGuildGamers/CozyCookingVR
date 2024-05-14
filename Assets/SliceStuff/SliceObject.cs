@@ -60,9 +60,9 @@ public class SliceObject : MonoBehaviour
             // Calculates upper and lower hull sizes, if either is too small, don't slice
             float upperHullSize = CalculateSize(upperHull);
             float lowerHullSize = CalculateSize(lowerHull);
-            //if (upperHullSize > sliceableComponent.originalSize * sliceableComponent.margin &&
-            //    lowerHullSize > sliceableComponent.originalSize * sliceableComponent.margin)
-            //{
+            if (upperHullSize > sliceableComponent.originalSize * sliceableComponent.margin &&
+                lowerHullSize > sliceableComponent.originalSize * sliceableComponent.margin)
+            {
                 // Decrements the slice count for children
                 sliceableComponent.sliceCount--;
                 // Sets up upper and lower hulls, destroys parent object
@@ -77,13 +77,14 @@ public class SliceObject : MonoBehaviour
                     StartCoroutine(AudioManager.instance.PlayInOrder(sliceableComponent.sounds, transform));
                 }
                 Destroy(target);
-        //}
-        //else
-        //{
-        //    Destroy(upperHull);
-        //    Destroy(lowerHull);
-        //}
-    }
+            }
+            else
+            {
+                Debug.Log("Slice is too small.");
+                Destroy(upperHull);
+                Destroy(lowerHull);
+            }
+        }
     }
 
     // Create components, set mesh values, add explosion force, and set layer to slicable
