@@ -35,13 +35,15 @@ public class ButtonScript : MonoBehaviour
     private void OnReleased(XRBaseInteractor interactor)
     {
         //buttonToContinue = true;
-        grabInteractable.enabled = false;
-        OutlineScript.enabled = false;
+        //grabInteractable.enabled = false;
+        //OutlineScript.enabled = false;
+        
         if(stateNum == 1)
         {
             GameStateManager.instance.ChangeGameState(GameStateManager.GameState.BeginOnionChop);
             stateNum++;
         }
+        /*
         else if (stateNum == 2)
         {
             GameStateManager.instance.ChangeGameState(GameStateManager.GameState.BeginTomatoChop);
@@ -57,6 +59,7 @@ public class ButtonScript : MonoBehaviour
             GameStateManager.instance.ChangeGameState(GameStateManager.GameState.BeginWashingBokChoy);
             stateNum++;
         }
+        */
     }
 
 

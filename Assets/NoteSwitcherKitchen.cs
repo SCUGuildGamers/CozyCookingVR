@@ -25,9 +25,10 @@ public class NoteSwitcherKitchen : MonoBehaviour
         currentPage = Paper.GetComponent<MeshRenderer>();
         PageList.Add(step1Tomato);
         PageList.Add(step2Onion);
+        PageList.Add(step1Tomato);
         PageList.Add(step3Pork);
         PageList.Add(step4Choy);
-        SetPage(pageIndex);
+        //SetPage(pageIndex);
     }
 
     // Update is called once per frame
@@ -83,5 +84,30 @@ public class NoteSwitcherKitchen : MonoBehaviour
     public void FlippedPage()
     {
         AudioManager.instance.Play("sfx_turningpage", transform);
+    }
+
+    public void BeginOnionChop()
+    {
+        SetPage(0);
+    }
+
+    public void BeginTomatoChop()
+    {
+        SetPage(1);
+    }
+
+    public void BeginBowlStep()
+    {
+        SetPage(2);
+    }
+
+    public void BeginBrownPork()
+    {
+        SetPage(3);
+    }
+
+    public void BeginWashingBokChoy()
+    {
+        SetPage(4);
     }
 }
