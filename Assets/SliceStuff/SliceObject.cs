@@ -98,9 +98,12 @@ public class SliceObject : MonoBehaviour
         XRGrabInteractable grabable = slicedObject.AddComponent<XRGrabInteractable>();
         Sliceable sc = slicedObject.AddComponent<Sliceable>();
         sc.CopyValuesFrom(parent.GetComponent<Sliceable>());
+        sc.margin *= 0.5f;
         mc.convex = true;
+        rb.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
         rb.AddExplosionForce(explosionForce, slicedObject.transform.position, 1);
         grabable.movementType = XRBaseInteractable.MovementType.VelocityTracking;
+        grabable.useDynamicAttach = true;
         slicedObject.layer = LayerMask.NameToLayer("Sliceable");
 
 

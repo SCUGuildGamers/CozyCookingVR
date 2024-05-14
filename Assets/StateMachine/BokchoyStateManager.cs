@@ -17,7 +17,6 @@ public class BokchoyStateManager : MonoBehaviour
         XRScript.enabled = false;
 
         XRScript.onSelectEntered.AddListener(OnGrabbed);
-        XRScript.onSelectExited.AddListener(OnReleased);
     }
 
 
@@ -25,11 +24,6 @@ public class BokchoyStateManager : MonoBehaviour
     {
         GameStateManager.instance.ChangeGameState(GameStateManager.GameState.EndingState);
         OutlineScript.enabled = false;
-    }
-
-    private void OnReleased(XRBaseInteractor interactor)
-    {
-        SceneManager.LoadScene("Dorm P1");
     }
 
     public void BeginWashingBokChoy()
