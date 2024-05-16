@@ -62,6 +62,7 @@ public class KnifeStateManager : MonoBehaviour
     // The following functions will handle the logic for the outline while doing through BeginOnionCHop, BeginTomatoChop, and BeginBrownPork
     private void OnGrabbed(XRBaseInteractor interactor)
     {
+        AudioManager.instance.Play("sfx_pickupknife", transform);
         OutlineScript.enabled = false;
     }
 
