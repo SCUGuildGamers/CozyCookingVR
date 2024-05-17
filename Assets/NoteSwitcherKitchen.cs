@@ -10,10 +10,11 @@ public class NoteSwitcherKitchen : MonoBehaviour
 
     private MeshRenderer currentPage;
 
-    public Material step1Tomato;
-    public Material step2Onion;
-    public Material step3Pork;
-    public Material step4Choy;
+    public Material step1Onion;
+    public Material step2Tomato;
+    public Material step3Bowl;
+    public Material step4Pork;
+    public Material step5Choy;
 
     private List<Material> PageList = new List<Material>();
     private List<Material> tempPageList = new List<Material>();
@@ -23,11 +24,11 @@ public class NoteSwitcherKitchen : MonoBehaviour
     void Start()
     {
         currentPage = Paper.GetComponent<MeshRenderer>();
-        PageList.Add(step1Tomato);
-        PageList.Add(step2Onion);
-        PageList.Add(step1Tomato);
-        PageList.Add(step3Pork);
-        PageList.Add(step4Choy);
+        PageList.Add(step1Onion);
+        PageList.Add(step2Tomato);
+        PageList.Add(step3Bowl);
+        PageList.Add(step4Pork);
+        PageList.Add(step5Choy);
         //SetPage(pageIndex);
     }
 

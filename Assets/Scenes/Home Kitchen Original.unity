@@ -44257,10 +44257,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Paper: {fileID: 1412827138171763944}
-  step1Tomato: {fileID: 2100000, guid: 5d2e65d00e0b2064cab677bf7532da13, type: 2}
-  step2Onion: {fileID: 2100000, guid: f2879ae67eb87ef4383f3fd89aa0fccc, type: 2}
-  step3Pork: {fileID: 2100000, guid: 4e328397525493e43b9eb7842fd8b119, type: 2}
-  step4Choy: {fileID: 2100000, guid: f4b7c5d3308751a4ca3bdfd28af722c7, type: 2}
+  step1Onion: {fileID: 2100000, guid: 5d2e65d00e0b2064cab677bf7532da13, type: 2}
+  step2Tomato: {fileID: 2100000, guid: f2879ae67eb87ef4383f3fd89aa0fccc, type: 2}
+  step3Bowl: {fileID: 2100000, guid: 4e328397525493e43b9eb7842fd8b119, type: 2}
+  step4Pork: {fileID: 2100000, guid: f4b7c5d3308751a4ca3bdfd28af722c7, type: 2}
+  step5Choy: {fileID: 2100000, guid: ff4d29add4ed7b344b25f0b0911352ca, type: 2}
 --- !u!4 &1026050021492616723
 Transform:
   m_ObjectHideFlags: 0
