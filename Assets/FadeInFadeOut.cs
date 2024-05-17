@@ -9,7 +9,8 @@ public class FadeInFadeOut : MonoBehaviour
     public GameObject BlackImage;
     void Start()
     {
-        StartCoroutine(FadeToBlack());
+        this.gameObject.SetActive(true);
+        StartCoroutine(FadeInFromBlack());
        
     }
 
@@ -29,7 +30,7 @@ public class FadeInFadeOut : MonoBehaviour
 
     public IEnumerator FadeToBlack()
     {
-        yield return new WaitForSeconds(3f);
+       
         Color black = BlackImage.GetComponent<Image>().color;
         Color targetColor = new Color(black.r, black.g, black.b, 0f);
         float timer = 0f;
