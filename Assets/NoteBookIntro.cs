@@ -12,6 +12,7 @@ public class NoteBookIntro : MonoBehaviour
 
     void Start()
     {
+        fadeOut.SetActive(true);
         bookOutline = GetComponent<Outline>();
     }
 
@@ -35,6 +36,8 @@ public class NoteBookIntro : MonoBehaviour
 
     public void ButtonPressed()
     {
+        Debug.Log("button pressed");
+
         StartCoroutine(SceneTransition());
     }
 

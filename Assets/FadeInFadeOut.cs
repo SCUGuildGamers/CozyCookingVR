@@ -9,9 +9,7 @@ public class FadeInFadeOut : MonoBehaviour
     public GameObject BlackImage;
     void Start()
     {
-        this.gameObject.SetActive(true);
-        StartCoroutine(FadeInFromBlack());
-       
+        StartCoroutine(FadeInFromBlack());  
     }
 
     // Update is called once per frame
@@ -29,8 +27,7 @@ public class FadeInFadeOut : MonoBehaviour
 
 
     public IEnumerator FadeToBlack()
-    {
-       
+    {   
         Color black = BlackImage.GetComponent<Image>().color;
         Color targetColor = new Color(black.r, black.g, black.b, 0f);
         float timer = 0f;
@@ -39,7 +36,7 @@ public class FadeInFadeOut : MonoBehaviour
         float tempAlpha = 0f;
         while (tempAlpha <= 1f)
         {
-            tempAlpha += 0.005f;
+            tempAlpha += 0.01f;
             float t = Mathf.SmoothStep(0, 1, timer / transitionTime);
             BlackImage.GetComponent<Image>().color = new Color(black.r, black.g, black.b, tempAlpha);
             yield return null;
@@ -49,7 +46,7 @@ public class FadeInFadeOut : MonoBehaviour
 
     public IEnumerator FadeInFromBlack()
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(2f);
         Color black = BlackImage.GetComponent<Image>().color;
         Color targetColor = new Color(black.r, black.g, black.b, 0f);
         float timer = 0f;
@@ -58,7 +55,7 @@ public class FadeInFadeOut : MonoBehaviour
         float tempAlpha = 1f;
         while (tempAlpha >= 0)
         {
-            tempAlpha -= 0.005f;
+            tempAlpha -= 0.01f;
             float t = Mathf.SmoothStep(0, 1, timer / transitionTime);
             BlackImage.GetComponent<Image>().color = new Color(black.r, black.g, black.b, tempAlpha);
             yield return null;
