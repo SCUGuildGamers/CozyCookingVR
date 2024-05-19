@@ -14,10 +14,13 @@ public class BowlScript1 : MonoBehaviour
     public GameObject soup2;
     public GameObject soup3;
 
+    public GameObject fadeOut;
+
     // Start is called before the first frame update
     void Start()
     {
         OutlineScript = gameObject.GetComponent<Outline>();
+        fadeOut.SetActive(true);
     }
 
     public void StartingState()
@@ -48,13 +51,14 @@ public class BowlScript1 : MonoBehaviour
             soup2.SetActive(false);
             soup3.SetActive(true);
             // this is where you change the gamestate to change scenes 
+            fadeOut.GetComponent<FadeInFadeOut>().StartFadeToBlack();
             StartCoroutine(SwitchScenes());
         }
 
     }
     private IEnumerator SwitchScenes()
     {
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(6);
         // insert fade to black code here
         SceneManager.LoadScene(sceneName: "Dorm P3");
     }

@@ -15,6 +15,8 @@ public class BokchoyStateManager : MonoBehaviour
         XRScript = gameObject.GetComponent<XRGrabInteractable>();
         OutlineScript.enabled = false;
         XRScript.enabled = false;
+        //OutlineScript.enabled = true;
+        //XRScript.enabled = true;
 
         XRScript.onSelectEntered.AddListener(OnGrabbed);
     }

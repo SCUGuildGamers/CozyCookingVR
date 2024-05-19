@@ -9,6 +9,8 @@ public class GameStateManager : MonoBehaviour
     public GameState currentGameState;
     public static GameStateManager instance;
 
+    public GameObject fadeOut;
+
     // Variable for number of tomatoes and onions that need to be ut
     public  int numOnions = 1;
     public int numTomato = 1;
@@ -55,6 +57,7 @@ public class GameStateManager : MonoBehaviour
         // buttonScript = secondInCommand.GetComponent<ButtonScript>();
         instance = this;
         ChangeGameState(GameState.StartingState);
+        fadeOut.SetActive(true);
     }
 
 
@@ -127,6 +130,7 @@ public class GameStateManager : MonoBehaviour
 
             case GameState.EndingState:
                 Debug.Log("EndingState reached!  Everything should be working");
+                fadeOut.GetComponent<FadeInFadeOut>().StartFadeToBlack();
                 StartCoroutine(SwitchScenes());
                 break;
 
@@ -135,7 +139,8 @@ public class GameStateManager : MonoBehaviour
 
     private IEnumerator SwitchScenes()
     {
-        yield return new WaitForSeconds(3);
+        
+        yield return new WaitForSeconds(6);
         // insert fade to black code here
         SceneManager.LoadScene(sceneName: "Dorm P1");
     }

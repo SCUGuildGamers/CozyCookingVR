@@ -17,6 +17,8 @@ public class GameManager : MonoBehaviour
     public GameObject VeggieBowl;
     public GameObject Lid;
 
+    public GameObject fadeOut;
+
     public GameObject NoteBook;
 
     // Variable for number of tomatoes and onions that need to be ut
@@ -44,6 +46,7 @@ public class GameManager : MonoBehaviour
   
     private void Start()
     {
+        fadeOut.SetActive(true);
         ChangeGameState(GameState.NotComplete);
         /*
         potOutline = Pot.GetComponent<Outline>();
@@ -102,6 +105,7 @@ public class GameManager : MonoBehaviour
                 Lid.GetComponent<Outline>().enabled = false;
                 Pot.GetComponent<Outline>().enabled = false;
                 Debug.Log("Changing scenes to the next kitchen");
+                fadeOut.GetComponent<FadeInFadeOut>().StartFadeToBlack();
                 StartCoroutine(SwitchScenes());
                 break;
 
@@ -180,7 +184,7 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator SwitchScenes()
     {
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(6);
         // insert fade to black code here
         SceneManager.LoadScene(sceneName: "Home Kitchen 2");
     }
