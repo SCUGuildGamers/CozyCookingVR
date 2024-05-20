@@ -13,6 +13,6 @@ public class RestartButton : MonoBehaviour
     private IEnumerator SwitchScenes()
     {
         yield return new WaitForSeconds(3);
-        SceneManager.LoadScene(sceneName: "Home Kitchen Original");
+        SceneManager.LoadScene(sceneName: "Home Kitchen Intro");
     }
 }
