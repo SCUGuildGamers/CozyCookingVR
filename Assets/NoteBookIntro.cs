@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class NoteBookIntro : MonoBehaviour
 {
@@ -9,7 +10,7 @@ public class NoteBookIntro : MonoBehaviour
     private Outline bookOutline;
     public GameObject fadeOut;
     public GameObject buttonCanvas;
-
+    public GameObject instructions;
     void Start()
     {
         fadeOut.SetActive(true);
@@ -26,6 +27,7 @@ public class NoteBookIntro : MonoBehaviour
     {
         bookOutline.enabled = false;
         buttonCanvas.SetActive(true);
+        instructions.GetComponent<TextMeshProUGUI>().text = "Poke the button";
         AudioManager.instance.Play("sfx_pickingupnotebook", transform);
     }
 

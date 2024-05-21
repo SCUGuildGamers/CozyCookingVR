@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: PorkBellyStep
+  m_Name: BowlStep
   m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -49,8 +49,8 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _MainTex:
         m_Texture: {fileID: 2800000, guid: 39f2b17feec061c428db1c5f507874f3, type: 3}
-        m_Scale: {x: -2.4, y: -1.82}
-        m_Offset: {x: -0.96, y: 1.14}
+        m_Scale: {x: -2.16, y: -1.53}
+        m_Offset: {x: -1, y: 1.06}
     - _MetallicGlossMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}

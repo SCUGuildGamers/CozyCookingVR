@@ -24,9 +24,13 @@ public class BokchoyStateManager : MonoBehaviour
 
     private void OnGrabbed(XRBaseInteractor interactor)
     {
-        GameStateManager.instance.ChangeGameState(GameStateManager.GameState.EndingState);
-        OutlineScript.enabled = false;
+        if(GameStateManager.instance.currentGameState != GameStateManager.GameState.EndingState)
+        {
+            GameStateManager.instance.ChangeGameState(GameStateManager.GameState.EndingState);
+            OutlineScript.enabled = false;
+        }
     }
+        
 
     public void BeginWashingBokChoy()
     {

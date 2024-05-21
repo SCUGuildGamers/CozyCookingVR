@@ -31,13 +31,15 @@ public class LadleDetection : MonoBehaviour
         }   
         if(other.gameObject.tag == "Bowl")
         {
+            if (hasSoup)
+            {
+                other.gameObject.GetComponent<BowlScript1>().FillBowl();
+            }
             SoupObject.SetActive(false);
             hasSoup = false;
             // call some function with getcomponent to increase the size/height of the soup level in the bowl
-            other.gameObject.GetComponent<BowlScript1>().FillBowl();
             AudioManager.instance.Play("sfx_ladlingsouppour", transform);
         }
-       
     }
 
     private void OnTriggerExit(Collider other)
