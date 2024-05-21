@@ -27,8 +27,8 @@ public class BokchoyStateManager : MonoBehaviour
         if(GameStateManager.instance.currentGameState != GameStateManager.GameState.EndingState)
         {
             GameStateManager.instance.ChangeGameState(GameStateManager.GameState.EndingState);
-            OutlineScript.enabled = false;
         }
+        OutlineScript.enabled = false;
     }
         
 
