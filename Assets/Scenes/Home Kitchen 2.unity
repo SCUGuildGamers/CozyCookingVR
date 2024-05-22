@@ -10516,7 +10516,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Catpet_02 (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 64394573552246406, guid: ee360503ae6e9324981550e01ffadc7e, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -26934,7 +26935,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: RangeHood
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5627046569909271437, guid: e6b31ea5fd93fcb4395dac83cc6c86d1, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -26968,8 +26970,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.596183, y: 0.6749375, z: 0.5236926}
-  m_Center: {x: 1.5524854e-14, y: 0.33804137, z: 0.08340582}
+  m_Size: {x: 0.893165, y: 0.6749375, z: 0.5236926}
+  m_Center: {x: -0.027006121, y: 0.33804137, z: 0.08340582}
 --- !u!1 &899039979
 GameObject:
   m_ObjectHideFlags: 0
@@ -53612,7 +53614,7 @@ PrefabInstance:
     - target: {fileID: 7696548424635294051, guid: 895f6f3c2d334633b5800312285058d2,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.129
+      value: -0.229
       objectReference: {fileID: 0}
     - target: {fileID: 8074195219289459696, guid: 895f6f3c2d334633b5800312285058d2,
         type: 3}

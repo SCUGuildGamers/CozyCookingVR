@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class FaucetDetector : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class FaucetDetector : MonoBehaviour
     public Material liqFill;
     public bool isPouring;
     GameObject currentLoop = null;
+    [SerializeField] private GameObject Button;
     // both the faucet and the sauce bottles will be playing the same sound effect need to find a fix later
 
     void Start()
@@ -36,6 +38,7 @@ public class FaucetDetector : MonoBehaviour
                 currentLoop = null;
             }
             isPouring = false;
+            Button.GetComponent<TextMeshProUGUI>().text = "turn on faucet";
             EndPour();
             // turn off stream
         }
@@ -43,6 +46,7 @@ public class FaucetDetector : MonoBehaviour
         {
             currentLoop = AudioManager.instance.LerpLoopable("faucetrunning_loop", transform, 2.0f);
             isPouring = true;
+            Button.GetComponent<TextMeshProUGUI>().text = "turn off faucet";
             StartPour(); 
         }
     }

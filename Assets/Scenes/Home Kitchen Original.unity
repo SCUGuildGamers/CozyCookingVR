@@ -485,6 +485,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1672247090}
     m_Modifications:
+    - target: {fileID: 64394573552246406, guid: ee360503ae6e9324981550e01ffadc7e,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4582037475930164517, guid: ee360503ae6e9324981550e01ffadc7e,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -550,7 +555,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Catpet_02 (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 64394573552246406, guid: ee360503ae6e9324981550e01ffadc7e, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -15601,6 +15607,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7338324377231284221, guid: fd9f6fa0e80417a448ed063bf6a25722,
+        type: 3}
+      propertyPath: m_Convex
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -25171,7 +25182,7 @@ MonoBehaviour:
   m_SnapToColliderVolume: 1
   m_ReinitializeDynamicAttachEverySingleGrab: 1
   m_AttachEaseInTime: 0.15
-  m_MovementType: 0
+  m_MovementType: 2
   m_VelocityDamping: 1
   m_VelocityScale: 1
   m_AngularVelocityDamping: 1
@@ -33810,11 +33821,48 @@ PrefabInstance:
       propertyPath: m_Name
       value: RangeHood
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 5627046569909271437, guid: e6b31ea5fd93fcb4395dac83cc6c86d1,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 5627046569909271437, guid: e6b31ea5fd93fcb4395dac83cc6c86d1, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2307954108425058275, guid: e6b31ea5fd93fcb4395dac83cc6c86d1,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1635503402}
   m_SourcePrefab: {fileID: 100100000, guid: e6b31ea5fd93fcb4395dac83cc6c86d1, type: 3}
+--- !u!1 &1635503401 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2307954108425058275, guid: e6b31ea5fd93fcb4395dac83cc6c86d1,
+    type: 3}
+  m_PrefabInstance: {fileID: 1635503400}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1635503402
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1635503401}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.496721, y: 0.67551017, z: 0.50917965}
+  m_Center: {x: 0.025787, y: 0.33775508, z: 0.07614931}
 --- !u!1001 &1636770886
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -44422,8 +44470,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.11759281, y: 0.013562083, z: 0.15695024}
-  m_Center: {x: 0, y: 0.007313907, z: 0.052066922}
+  m_Size: {x: 0.11759281, y: 0.018058479, z: 0.15695025}
+  m_Center: {x: -1.4826274e-16, y: 0.0050657094, z: 0.052066922}
 --- !u!114 &919132148033557649
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44455,7 +44503,7 @@ MonoBehaviour:
   step2Tomato: {fileID: 2100000, guid: f2879ae67eb87ef4383f3fd89aa0fccc, type: 2}
   step3Bowl: {fileID: 2100000, guid: 4e328397525493e43b9eb7842fd8b119, type: 2}
   step4Pork: {fileID: 2100000, guid: f4b7c5d3308751a4ca3bdfd28af722c7, type: 2}
-  step5Choy: {fileID: 2100000, guid: ff4d29add4ed7b344b25f0b0911352ca, type: 2}
+  step5Choy: {fileID: 2100000, guid: 8f009346ad7abfb4abaef9901ef1df32, type: 2}
 --- !u!4 &1026050021492616723
 Transform:
   m_ObjectHideFlags: 0

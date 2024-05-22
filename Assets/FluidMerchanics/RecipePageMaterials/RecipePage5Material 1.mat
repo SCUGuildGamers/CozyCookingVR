@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8012164679598829685
+--- !u!114 &-6506767219471391412
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: RecipePage7Material
+  m_Name: RecipePage5Material 1
   m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -61,9 +61,9 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: f92837fcb52ca874582d365a8834771e, type: 3}
-        m_Scale: {x: -2.26, y: -1.74}
-        m_Offset: {x: -0.96, y: 1.06}
+        m_Texture: {fileID: 2800000, guid: d974566ef552f044dad903026a257c58, type: 3}
+        m_Scale: {x: -2.4, y: -1.74}
+        m_Offset: {x: -0.91, y: 1.06}
     - _MetallicGlossMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
