@@ -439,11 +439,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 815351766}
     m_Modifications:
+    - target: {fileID: 2261569300311295472, guid: 68842ae67b3261746880140bebe487a5,
+        type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3319837496376928879, guid: 68842ae67b3261746880140bebe487a5,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 2100000, guid: 11db649d7516a19439edf18bd0b23fa0, type: 2}
     - target: {fileID: 5831852967543118170, guid: 68842ae67b3261746880140bebe487a5,
         type: 3}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 815351763}
+    - target: {fileID: 5831852967543118170, guid: 68842ae67b3261746880140bebe487a5,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6188742694102244714, guid: 68842ae67b3261746880140bebe487a5,
         type: 3}
       propertyPath: m_Name
@@ -552,8 +567,30 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6351687955076571779, guid: 68842ae67b3261746880140bebe487a5,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 60588186}
   m_SourcePrefab: {fileID: 100100000, guid: 68842ae67b3261746880140bebe487a5, type: 3}
+--- !u!1 &60588185 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6351687955076571779, guid: 68842ae67b3261746880140bebe487a5,
+    type: 3}
+  m_PrefabInstance: {fileID: 60588184}
+  m_PrefabAsset: {fileID: 0}
+--- !u!210 &60588186
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 60588185}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 30010
+  m_SortAtRoot: 0
 --- !u!1 &77914717
 GameObject:
   m_ObjectHideFlags: 0
