@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
 public class GameStateManager : MonoBehaviour
 {
 
@@ -60,6 +61,13 @@ public class GameStateManager : MonoBehaviour
         fadeOut.SetActive(true);
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            SceneManager.LoadScene(sceneName: "Home Kitchen Original");
+        }   
+    }
 
     // Handles what happens when we switch states
     public void ChangeGameState(GameState newGameState)

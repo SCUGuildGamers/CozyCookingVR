@@ -48,17 +48,15 @@ public class GameManager : MonoBehaviour
     {
         fadeOut.SetActive(true);
         ChangeGameState(GameState.NotComplete);
-        /*
-        potOutline = Pot.GetComponent<Outline>();
-        sinkOutline = Sink.GetComponent<Outline>();
-        sauceOutline = Sauce.GetComponent<Outline>();
-        powderOutline = Powder.GetComponent<Outline>();
-        stoveAreaOutline = StoveArea.GetComponent<Outline>();
-        bowlOutline = VeggieBowl.GetComponent<Outline>();
-        lidOutline = Lid.GetComponent<Outline>();
-        */
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            SceneManager.LoadScene(sceneName: "Dorm P1");
+        }
+    }
 
     // Handles what happens when we switch states
     public void ChangeGameState(GameState newGameState)
@@ -125,12 +123,6 @@ public class GameManager : MonoBehaviour
     public void DormComplete()
     {
         Debug.Log("game state manager got the message and changing scenes");
-        /*
-        if(currentGameState == GameState.NotComplete)
-        {
-            ChangeGameState(GameState.DormTransition);
-        } 
-        */
     }
 
     public void WaterAdded()

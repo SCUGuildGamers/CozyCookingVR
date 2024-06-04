@@ -22,6 +22,13 @@ public class BowlScript1 : MonoBehaviour
         OutlineScript = gameObject.GetComponent<Outline>();
         fadeOut.SetActive(true);
     }
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            SceneManager.LoadScene(sceneName: "Home Kitchen 2");
+        }
+    }
 
     public void StartingState()
     {

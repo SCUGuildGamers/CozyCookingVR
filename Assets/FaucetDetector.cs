@@ -38,7 +38,7 @@ public class FaucetDetector : MonoBehaviour
                 currentLoop = null;
             }
             isPouring = false;
-            Button.GetComponent<TextMeshProUGUI>().text = "turn on faucet";
+            Button.GetComponent<TextMeshProUGUI>().text = "Poke to turn on faucet";
             EndPour();
             // turn off stream
         }
@@ -46,7 +46,7 @@ public class FaucetDetector : MonoBehaviour
         {
             currentLoop = AudioManager.instance.LerpLoopable("faucetrunning_loop", transform, 2.0f);
             isPouring = true;
-            Button.GetComponent<TextMeshProUGUI>().text = "turn off faucet";
+            Button.GetComponent<TextMeshProUGUI>().text = "Poke to turn off faucet";
             StartPour(); 
         }
     }
